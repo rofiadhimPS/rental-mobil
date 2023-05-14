@@ -9,6 +9,7 @@ class ProductBenefit extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'product_id',
         'tipe_mobil',
         'tahun',
         'warna',
