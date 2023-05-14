@@ -1,0 +1,380 @@
+body {
+  font-family: sen;
+  margin: 0;
+  padding: 0;
+}
+
+/* profil */
+.col-sm-4 img{
+width:50px;
+height:50px;
+border-radius:50%;
+background-color:#000;
+}
+button.btn-
+div.row{
+    margin:0px;
+}
+
+.modal-body img{
+    width:30%;
+
+}
+.list-group{
+    margin-top:60px;
+}
+.slider{
+width: 100px;
+}
+.slider img {
+  height: 640px;
+
+
+}
+
+.icon_chat img{
+width : 20px;
+}
+div.icon_chat{
+    padding-left:95%;
+}
+.pertanyaan {
+    background-color:#AE88FF;
+    padding:10px;
+    margin: 5px;
+    display:inline-flex;
+    border-radius: 10px;
+}
+.jawaban p{
+    text-align:right;
+    background-color:#D3D3D3;
+    padding:10px;
+    margin: 5px;
+    display:inline-flex;
+    border-radius: 10px;
+
+}
+.row{
+    margin-bottom : 20px;
+    margin-top : 20px;
+    justify-content:space-evenly;
+}
+.col-md-4 img{
+    width: 25px;
+    padding-top:5px;
+}
+container.input_data{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    margin-top:10px;
+}
+.dropdown button, .tanggal input{
+    color: black;
+    flex: 1;
+    width:400px;
+    padding: 10px 30px 10px 30px;
+    margin-left:40px;
+    text-align:left;
+    box-sizing: border-box;
+    left: 90px;
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    border: 1px solid #7B7F82;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+.brand img{
+    width: 60%;
+}
+container.brand{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+div.toyota{
+    text-align: right;
+}
+div.mitsubishi{
+    text-align:left;
+    padding-left: 120px;
+}
+
+.keunggulan h2{
+margin-top: 100px;
+}
+.keunggulan img{
+    margin-top: 50px;
+    width : 90%;
+    display:flex;
+}
+
+.boddyKeunggulan{
+    margin-top: 20px;
+}
+.rowKeunggulan{
+    display: flex;
+    
+}
+.colKeunggulan img{
+    width : 90%;
+    padding: 30px;
+}
+.colKeunggulan p{
+    font-size: 24px;
+}
+
+.card{
+margin-top: 30px;
+justify-content: center;
+align-items: center;
+border:none;
+}
+.card img{
+    width: 50%;
+}
+container.keunggulan{
+    text-align: center;
+}
+.produk h2{
+    margin-top: 100px;
+    text-align: center;
+}
+div.card-group{
+    justify-items:center;
+    width: 90%;
+    border-radius: 15px;
+}
+div.produk{
+    display:grid;
+    justify-items: center;
+}
+div.card{
+    margin-left: 30px;
+    margin-right:0px;
+    padding: 20px 20px 20px 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+}
+div.card img{
+    padding: none;
+    width: 70%;
+    border-radius: 15px 15px 0px 0px;
+}
+
+h3.card-title{
+    text-align: right;
+}
+.card-body span{
+    margin-top: 45px;
+    background: #6157FF;
+    border-radius: 30px;
+    padding: 5px 10px 5px 10px;
+    color: white;
+}
+div.p-3 img{
+    width: 70%;
+    background:none;
+}
+div.buttonDetail, div.buttonProduk{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buttonDetail a{
+    text-decoration: none;
+}
+
+.buttonProduk button{
+    text-align: center;
+    color: #fff;
+    width: 176px;
+    height: 39px;
+    background: #252525;
+    border-radius: 15px;
+    border: 0px solid;
+}
+.buttonProduk button a{
+    color: #fff;
+    text-decoration: none;
+}
+button{
+    text-align: center;
+}
+container.gelombang path{
+    background:#ae88ff;
+    background-size: 100px 100%;
+}
+div.bgColor{
+    margin-top:0px;
+    padding-top:0px;
+}
+.bgColor h2{
+    color: #ffffff;
+    text-align: center;
+}
+.testimoni img{
+
+    width: 100%;
+}
+div.client img{
+    width: 50%;
+}
+div.imageClient{
+    justify-items:center;
+    display: grid;
+}
+.tentangKami h2{
+    text-align: center;
+    padding-bottom: 100px;
+}
+.tentangKami img{
+    width: 100%;
+}
+div.kerjasama img{
+    background-color: #837ED9; 
+    width: 100%;
+    display:flex;
+    align-items: center;
+    
+
+    
+}
+.kerjasama p{
+    font-size: 24px;
+    text-align : center;
+}
+div.kerjasama{
+    margin-top:50px;
+    text-align : center;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    height: 350px;
+    padding: 10px;
+    margin-left:100px;
+    margin-right: 100px;
+}
+button.info{
+    color: #ffffff;
+    background: #252525;
+    border: 0px solid #252525;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    padding:10px;
+    border-radius: 15px;
+}
+.kerjasama img, .kerjasama a{
+    width:50px;
+
+
+}
+p.atau{
+    margin-top:10px;
+    font-size: 16px;
+}
+.artikel h2{
+    text-align: center;
+    padding: 50px;
+}
+div.cardArtikel img{
+    height: 230px;
+    width:100%;
+    border-radius: 15px 15px 0px 0px;
+    
+}
+div.col{
+    padding:0px;
+    margin:10px;
+    text-align:center;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+    border-radius : 15px 15px 0px 0px;
+}
+.col {
+    flex: 0;
+      flex-grow: 0;
+      /* flex-shrink: 1; */
+      flex-basis: 0%;
+  }
+.card-body{
+    padding:20px;
+}
+.card-body p{
+    color: #7B7F82;
+}
+.footer{
+    margin-top: 100px;
+    /* padding: 10px; */
+    background: linear-gradient(81.85deg, #360363 6.71%, #011846 86.1%);}
+    
+/* css Page Login */
+#colFooter{
+    /* width: 350px; */
+    background-color:transparent;
+    box-shadow: none;
+    color: #fff;
+    padding : 30px;
+}
+.wrapper-col-1 h1{
+    font-weight:800;
+    font-size: 2rem;
+}
+.wrapper-col-1 p{
+    font-size: 14px;
+    width : 90%;
+    text-align : left;
+}
+.wrapper-icon img{
+    width:25px;
+    margin-right: 10px;
+}
+
+.wrapper-col-2 {
+    width : 250px;
+    display: flex;
+    flex-direction: column;
+    text-align :left;
+}
+.wrapper-col-2 h1{
+    font-weight:500;
+    font-size: 1.5rem;
+    text-align : left;
+
+}
+.wrapper-col-2 p{
+    font-size: 14px;
+    width : 90%;
+    text-align : left;
+}
+.wrapper-col-3 h1{
+    width : 250px;
+    font-weight:500;
+    font-size: 1.5rem;
+    text-align : left;
+
+}
+.wrapper-col-3 p{
+    font-size: 14px;
+    width : 90%;
+    text-align : left;
+}
+.copyright{
+    color: #fff;
+    text-align : center;
+}
+.pageLogin img{
+    height: 924px;
+    width: 627px;
+    left: 664px;
+    top: 0px;
+    border-radius: [object Object]px;
+    
+}
+
+/* Akhir css Page Login */
