@@ -54,7 +54,7 @@
             <p class="fs-4">atau</p>
           </div>
           <div class="d-flex justify-content-center mb-3" style="box-shadow: 4px 4px 16px rgb(0 0 0 / 10%);border-radius: 10px;">
-            <a type="button" class="btn btn-lg w-100 d-flex justify-content-center align-items-center d-grid gap-2 fs-4"><img src="{{ asset('images/Google Logo.png') }}" style="width: 30px;">Google</a>
+            <a type="button" class="btn btn-lg w-100 d-flex justify-content-center align-items-center d-grid gap-2 fs-4" href="{{route('user.login.google')}}"><img src="{{ asset('images/Google Logo.png') }}" style="width: 30px;">Google</a>
           </div>
           
       </div> 

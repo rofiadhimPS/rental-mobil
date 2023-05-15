@@ -15,11 +15,31 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/notifikasi">Notifikasi</a>
                 </li>
-                <li class="nav-item">
-                    <button type="button" class="btn btn-light" style="border-radius: 30px; ">
-                        <a href="{{route('login')}}" style="text-decoration: none;">Login</a>
-                    </button>
-                </li>
+                @auth
+                    {{-- sudah login --}}
+                    <li class="d-flex nav-item user-logged dropdown no-arrow">
+                        <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            Halo, {{Auth::user()->name}}!
+                            <img class="" src="{{Auth::user()->avatar}}" alt="" width="30" height="24">
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
+                                <li>
+                                    <a class="dropdown-item" href="#">My Dashboard</a>
+                                </li>
+                                <li><a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
+                                    <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    </form>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <button type="button" class="btn btn-light" style="border-radius: 30px; ">
+                            <a href="{{route('login')}}" style="text-decoration: none;">Login</a>
+                        </button>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

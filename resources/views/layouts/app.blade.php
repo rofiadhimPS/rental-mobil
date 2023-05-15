@@ -25,6 +25,7 @@
     <body>
         <!-- navbar -->
         @include('components.navbar')
+
         <!-- akhir navbar -->
 
         @yield('content')
