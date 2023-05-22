@@ -15,4 +15,10 @@ class ProductBenefit extends Model
         'warna',
         'seat',
     ];
+
+    // Definisikan relasi dengan model Product
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

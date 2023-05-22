@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('tanggal_pesan');
             $table->string('lokasi_penjemputan');
             $table->string('metode_pembayaran');
-            $table->string('bukti_transfer');
+            $table->string('bukti_transfer')->nullable();
             $table->boolean('is_paid')->default(false);
             $table->timestamps();
             $table->softDeletes();

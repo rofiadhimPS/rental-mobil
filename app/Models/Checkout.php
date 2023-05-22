@@ -19,4 +19,10 @@ class Checkout extends Model
         'bukti_transfer',
         'is_paid',
     ];
+
+    public function Product()
+{
+    return $this->belongsTo(Product::class);
+}
+
 }

@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\HomeController;
+// use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,26 +19,27 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $products = Product::all();
+    return view('welcome', ['products' => $products]);
 })->name('welcome');
 
-Route::get('checkout', function () {
-    return view('checkout');
-})->name('checkout');
-
-Route::get('success-checkout', function () {
-    return view('success_checkout');
-})->name('success-checkout');
-
 // socialite
-
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
 Route::get('auth/google/callback', [UserController::class, 'handleProviderCallback'])->name('user.google.callback');
 
+Route::middleware(['auth', 'verified'])->group(function () {
+    //checkout routes
+    Route::get('checkout/success/{product}', [CheckoutController::class, 'success'])->name('checkout.success');
+    Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create');
+    Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    //dashboard routes
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+});
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->string('slug', 100);
-            $table->string('icon');
+            $table->string('icon')->default('/public/images')->nullable();
             $table->integer('price')->unsigned();
             $table->boolean('is_tersedia')->default(true);
             $table->timestamps();

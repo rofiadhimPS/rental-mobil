@@ -22,17 +22,17 @@
                         </div>
                         <div class="col justify-content-center">
                             <div class="card-body">
-                                <h5 class="card-title fw-bold fs-1">Fortuner</h5>
-                                <p class="card-text fs-2 fw-normal m-0">Rp500.000</p>
+                                <h5 class="card-title fw-bold fs-1">{{$product->title}}</h5>
+                                <p class="card-text fs-2 fw-normal m-0">Rp {{$product->price}}</p>
                                 <p class="card-text"><small class="text-muted">4.0 | 8 Kali Terpesan</small> </p>
                                 
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
                                 <h5 class="" style="border: 1px solid #6157FF; width: fit-content; padding: 8px 40px; margin: 40px 0 20px; border-radius: 10px;">Spesifikasi</h5>
-                                <h5>Tipe Mobil        : Xxxx</h5>
-                                <h5>Tahun             : 2018</h5>
-                                <h5>Warnae            : Silver, Hitam, Putih</h5>
-                                <h5>Metode Pembayaran : Transfer</h5>
+                                <h5>Tipe Mobil        : {{$product->productBenefit->tipe_mobil}} </h5>
+                                <h5>Tahun             : {{$product->productBenefit->tahun}}</h5>
+                                <h5>Warna            : {{$product->productBenefit->warna}}</h5>
+                                <h5>Metode Pembayaran : {{$checkout->metode_pembayaran }}</h5>
                             </div>
                             
                         </div>
@@ -42,7 +42,7 @@
                   <p class="text-center mt-5 fs-3 fw-bolder text-">Berhasil Checkout</p>
                 </div>
                 <div class="d-flex align-items-center flex-column">
-                  <a class="border py-2 px-4 pr- bg-success rounded-pill text-center text-white fs-7 fw-semibold " href="" >My Dashbord</a>
+                  <a class="border py-2 px-4 pr- bg-success rounded-pill text-center text-white fs-7 fw-semibold" style="text-decoration: none" href="{{route('dashboard')}}" >My Dashbord</a>
                 </div>
             </div>
         </section>

@@ -194,7 +194,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -227,7 +227,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '2')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -260,7 +260,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -297,7 +297,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -330,7 +330,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -363,7 +363,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -400,7 +400,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -433,7 +433,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -466,7 +466,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -503,7 +503,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -537,7 +537,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>
@@ -570,7 +570,7 @@
                             </div>
                         </div>
                         <div class="buttonProduk">
-                            <button><a href="{{route('checkout')}}">Rental Sekarang</a></button>
+                            <button><a href="{{route('checkout.create', '1')}}">Rental Sekarang</a></button>
                         </div>
                         <div class="buttonDetail">
                             <a href="/detailmobil">Detail</a>

@@ -16,4 +16,10 @@ class Product extends Model
         'icon',
         'is_tersedia',
     ];
+
+    public function productBenefit()
+    {
+        return $this->hasOne(ProductBenefit::class);
+    }
+
 }
