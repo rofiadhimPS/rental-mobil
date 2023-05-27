@@ -7,7 +7,6 @@ use App\Models\Checkout;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\ProductBenefit;
-
 use Auth;
 
 class CheckoutController extends Controller
