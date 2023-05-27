@@ -7,7 +7,10 @@ use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
-use App\Models\Product;
+use App\Http\Controllers\HomeProductController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProductBenefitsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +23,7 @@ use App\Models\Product;
 |
 */
 
-Route::get('/', function () {
-    $products = Product::all();
-    return view('welcome', ['products' => $products]);
-})->name('welcome');
+Route::get('/', [HomeProductController::class, 'index'])->name('welcome');
 
 // socialite
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
@@ -35,6 +35,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
     Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
 
+    // Halaman
+    Route::get('/detailmobil', function () {
+        return view('detail_mobil');
+    });
+    Route::get('/pesanan', function () {
+        return view('pesanan', [
+            'title'=>"pesan"
+        ]);
+    });
+    Route::get('/notifikasi', function () {
+        return view('notifikasi', [
+            'title'=>"notif"
+        ]);
+    });
+
     //dashboard 
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     //user dashboard
@@ -42,8 +57,40 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/', [UserDashboard::class, 'index'])->name('dashboard');
     });
     // admin dashboard
-    Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
-        Route::get('/', [AdminDashboard::class, 'index'])->name('dashboard');
+    Route::prefix('/admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
+        Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
+        Route::get('/pengguna', [UserController::class, 'index'])->name('admin_pengguna');
+        Route::get('/pesanan', [CheckoutController::class, 'index'])->name('admin_pesanan');
+    //    Benefits
+        Route::get('/produk', [ProductController::class, 'index'])->name('admin_produk');
+        Route::post('/produk/form1', [ProductBenefitsController::class, 'store'])->name('benefits.store');
+        Route::get('/produk/{id}/edit', [ProductBenefitsController::class, 'edit'])->name('benefits.edit');
+        Route::put('/produk/{id}', [ProductBenefitsController::class, 'update'])->name('benefits.update');
+    //    Product
+        Route::post('/produk/form2', [ProductController::class, 'store'])->name('product.store');
+        Route::get('/produk/{id}/edit', [ProductController::class, 'edit'])->name('product.edit');
+        Route::put('/produk/{id}', [ProductController::class, 'update'])->name('product.update');
+        Route::delete('/produk/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+
+        Route::get('/produk/tambahmobil', function () {
+            return view('admin.product.tambah_mobil',[
+            ]);
+        });
+        Route::get('/akun', function () {
+            return view('admin.admin_akun', [
+                'title'=>"Akun"
+            ]);
+        });
+        Route::get('/chat', function () {
+            return view('admin.admin_chat', [
+                'title'=>"Chat"
+            ]);
+        });
+        Route::get('/notifikasi', function () {
+            return view('admin.admin_notifikasi', [
+                'title'=>"Notifikasi"
+            ]);
+        });
     });
 });
 

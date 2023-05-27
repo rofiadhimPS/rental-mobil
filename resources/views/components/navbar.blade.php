@@ -6,16 +6,17 @@
             </button>
         <div class="collapse navbar-collapse flex-row-reverse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pesanan">Pemesanan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/notifikasi">Notifikasi</a>
-                </li>
+                
                 @auth
+                    <li class="nav-item">
+                        <a class="nav-link {{ (isset($title) && $title === 'beranda') ? 'active' : '' }}" aria-current="page" href="{{route('welcome')}}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/pesanan">Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ (isset($title) && $title === 'notif') ? 'active' : '' }}" href="/notifikasi">Notifikasi</a>
+                    </li>
                     {{-- sudah login --}}
                     <li class="d-flex nav-item user-logged dropdown no-arrow">
                         <a class="nav-link" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -38,6 +39,15 @@
                         </a>
                     </li>
                 @else
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{route('welcome')}}">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Notifikasi</a>
+                    </li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-light" style="border-radius: 30px; ">
                             <a href="{{route('login')}}" style="text-decoration: none;">Login</a>
