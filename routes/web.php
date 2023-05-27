@@ -5,7 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\HomeController;
-// use App\Models\Product;
+use App\Http\Controllers\User\DashboardController as UserDashboard;
+use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +31,20 @@ Route::get('auth/google/callback', [UserController::class, 'handleProviderCallba
 
 Route::middleware(['auth', 'verified'])->group(function () {
     //checkout routes
-    Route::get('checkout/success/{product}', [CheckoutController::class, 'success'])->name('checkout.success');
-    Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create');
-    Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store');
+    Route::get('checkout/success/{product}', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
+    Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
+    Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
 
-    //dashboard routes
+    //dashboard 
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    //user dashboard
+    Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
+        Route::get('/', [UserDashboard::class, 'index'])->name('dashboard');
+    });
+    // admin dashboard
+    Route::prefix('admin/dashboard')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
+        Route::get('/', [AdminDashboard::class, 'index'])->name('dashboard');
+    });
 });
 
 // Route::get('/dashboard', function () {
