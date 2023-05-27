@@ -98,6 +98,7 @@ class CheckoutController extends Controller
 
     public function success($productId)
 {
+    
     $checkout = Checkout::latest()->where('user_id', Auth::id())->first();
     // $checkouts = Checkout::with('Product')->whereUserId(Auth::id())->get();
     // return $checkout;
