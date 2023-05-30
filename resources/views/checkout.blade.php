@@ -9,35 +9,35 @@
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput" class="form-label" >Nama Lengkap</label>
-        <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  id="formGroupExampleInput" value="{{Auth::user()->name}}">
+        <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  id="formGroupExampleInput" value="{{Auth::user()->name}}" required>
         @if ($errors->has('name'))
           <p class="text-danger">{{$errors->first('name')}}</p>
         @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput2" class="form-label">No. Hp</label>
-        <input name="phone_number" type="text" class="form-control {{$errors->has('phone_number') ? 'is-invalid' : ''}}"  id="formGroupExampleInput2" placeholder="082xxxxxxxxx" value="{{ old('phone_number') }}">
+        <input name="phone_number" type="text" class="form-control {{$errors->has('phone_number') ? 'is-invalid' : ''}}"  id="formGroupExampleInput2" placeholder="082xxxxxxxxx" value="{{ old('phone_number') }}" required>
         @if ($errors->has('phone_number'))
           <p class="text-danger">{{$errors->first('phone_number')}}</p>
         @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Tanggal Pesanan</label>
-        <input name="tanggal_pesan" type="datetime-local" class="form-control {{$errors->has('tanggal_pesan') ? 'is-invalid' : ''}}"  id="formGroupExampleInput3" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}">
+        <input name="tanggal_pesan" type="datetime-local" class="form-control {{$errors->has('tanggal_pesan') ? 'is-invalid' : ''}}"  id="formGroupExampleInput3" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}" required>
         @if ($errors->has('tanggal_pesan'))
           <p class="text-danger">{{$errors->first('tanggal_pesan')}}</p>
         @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Lokasi Penjemputan</label>
-        <input name="lokasi_penjemputan" type="text" class="form-control {{$errors->has('lokasi_penjemputan') ? 'is-invalid' : ''}}" id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin"  value="{{ old('lokasi_penjemputan') }}">
+        <input name="lokasi_penjemputan" type="text" class="form-control {{$errors->has('lokasi_penjemputan') ? 'is-invalid' : ''}}" id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin"  value="{{ old('lokasi_penjemputan') }}" required>
         @if ($errors->has('lokasi_penjemputan'))
           <p class="text-danger">{{$errors->first('lokasi_penjemputan')}}</p>
         @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Metode Pembayaran</label>
-        <select name="metode_pembayaran" class="form-select {{$errors->has('metode_pembayaran') ? 'is-invalid' : ''}}" aria-label="Default select example">
+        <select name="metode_pembayaran" class="form-select {{$errors->has('metode_pembayaran') ? 'is-invalid' : ''}}" aria-label="Default select example" required>
             <option value="" disabled hidden>Pilih Metode</option>
             <option value="Transfer" {{ old('metode_pembayaran') === 'Transfer' ? 'selected' : '' }}>Transfer</option>
             <option value="Cash" {{ old('metode_pembayaran') === 'Cash' ? 'selected' : '' }}>Cash</option>
