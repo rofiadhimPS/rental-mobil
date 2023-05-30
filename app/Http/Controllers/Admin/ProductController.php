@@ -22,7 +22,7 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
-            'avatar' => 'required|image',
+            'icon' => 'required|image',
             'price' => 'required|integer',
             'is_tersedia' => 'required',
         ]);
@@ -31,11 +31,11 @@ class ProductController extends Controller
         $product->slug = $request->input('slug');
         $product->price = $request->input('price');
         $product->is_tersedia = $request->input('is_tersedia');
-        if ($request->hasFile('avatar')) {
-            $image = $request->file('avatar');
+        if ($request->hasFile('icon')) {
+            $image = $request->file('icon');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName);
-            $product->avatar = $imageName;
+            $product->icon = $imageName;
         }
 
         $product->save();
@@ -55,15 +55,15 @@ class ProductController extends Controller
         $product->slug = $request->input('slug');
         $product->price = $request->input('price');
         $product->is_tersedia = $request->input('is_tersedia');
-        if($request->hasFile('avatar')){
-            if ($product->avatar){
-                Storage::delete($product->avatar);
+        if($request->hasFile('icon')){
+            if ($product->icon){
+                Storage::delete($product->icon);
             }
 
-            $image = $request->file('avatar');
+            $image = $request->file('icon');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $imageName);
-            $product->avatar = $imageName;
+            $product->icon = $imageName;
         }
 
         $product->save();

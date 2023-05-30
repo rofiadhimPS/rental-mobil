@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderKonfirmasi;
 use App\Models\Product;
 use App\Models\ProductBenefit;
 use Auth;
@@ -16,7 +18,8 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        //
+        $checkouts = Checkout::all();
+        return view('admin.admin_pesanan', ['checkouts' => $checkouts]);
     }
 
     /**
@@ -34,30 +37,38 @@ class CheckoutController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request, Product $product)
-    {
+    {   
+        $check = $request->validate([
+            'title' => 'required',
+            'name' => 'required',
+            'tanggal_pesan' => 'required',
+            'lokasi_penjemputan' => 'required',
+            'metode_pembayaran' => 'required'
+        ]);
         // Mengambil data dari permintaan
-        $data = $request->except('bukti'); // Mengabaikan input 'bukti'
+        $check = $request->except('bukti'); // Mengabaikan input 'bukti'
     
         // Mengunggah gambar
         if ($request->hasFile('bukti')) {
             $imagePath = $request->file('bukti')->store('public/images/bukti');
-            $data['bukti_transfer'] = $imagePath;
+            $check['bukti_transfer'] = $imagePath;
         } else {
-            $data['bukti_transfer'] = null; // Atur nilai null jika tidak ada file yang diunggah
+            $check['bukti_transfer'] = null; // Atur nilai null jika tidak ada file yang diunggah
         }
         
 
         //mapping data
-        $data['user_id'] = Auth::id();
-        $data['product_id'] = $product->id;
+        $check['user_id'] = Auth::id();
+        $check['product_id'] = $product->id;
 
         // update data user
         $user = Auth::user();
-        $user['no_telp'] = $data['phone_number'];
+        $user['no_telp'] = $check['phone_number'];
         $user->save();
 
-        // create checkout table
-        $checkout = Checkout::create($data);
+        $checkout = Checkout::create($check);
+        $ownerEmail = 'bangpertepan12@gmail.com';
+        Mail::to($ownerEmail)->send(new OrderKonfirmasi($checkout));
 
         return redirect(route('checkout.success', $product->id));
 
@@ -66,17 +77,30 @@ class CheckoutController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Checkout $checkout)
+    public function notify(Checkout $checkout)
     {
-        //
+        $user_id = auth()->user()->id;
+        $exists = Checkout::where('user_id', $user_id)->exists();
+        $title = 'pesan';
+        return view('pesanan', ['checkout' => $exists, 'title' => $title]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Checkout $checkout)
+    public function ubahStatus(Request $request, $id)
     {
-        //
+        $checkout = Checkout::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:proses,penjemputan,selesai',
+        ]);
+
+        $statusLama = $checkout->status;
+        $checkout->status = $request->status;
+        $checkout->save();
+
+        return redirect()->route('admin.admin_pesanan');        
     }
 
     /**
@@ -90,10 +114,8 @@ class CheckoutController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Checkout $checkout)
-    {
-        //
-    }
+    
+
 
     public function success($productId)
 {
