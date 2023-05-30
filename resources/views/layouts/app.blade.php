@@ -20,7 +20,7 @@
         crossorigin="anonymous"
         />
         <link rel="icon" href="{{asset('images/tkro.png')}}" />
-        <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/welcome.css')}}" />
     </head>
     <body>
         <!-- navbar -->
@@ -35,5 +35,7 @@
             integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
             crossorigin="anonymous">
         </script>
+
+        @yield('script')
     </body>
 </html>

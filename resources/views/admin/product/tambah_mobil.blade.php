@@ -53,10 +53,10 @@
             @enderror
         </div>
         <div class="mb-3">
-          <label for="avatar" class="form-label">avatar</label>
-          <input class="form-control" type="file" name="avatar" id="avatar" accept="image/*" required>
+          <label for="icon" class="form-label">Gambar</label>
+          <input class="form-control" type="file" name="icon" id="icon" accept="image/*" required>
           <img id="previewImage" src="#" alt="preview mobil rental" style="display:none;" width="300px">
-          @error('avatar')
+          @error('icon')
                 <div class="text-red-500">{{ $message }}</div>
             @enderror
         </div>
@@ -66,7 +66,7 @@
         </div>
         <div>
           <button id="submit-form2" type="submit" class="btn btn-primary">Tambah</button>
-          <button type="button" class="btn btn-primary" onclick="window.location.href = '/webadmin/produk';">Selesai</button>
+          <button type="button" class="btn btn-primary" onclick="window.location.href = '/admin/produk';">Selesai</button>
         </div>
       </form>
         <hr>

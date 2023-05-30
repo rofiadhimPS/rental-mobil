@@ -77,8 +77,8 @@
           <input type="text" class="form-control" name="price"  id="price" placeholder="harga" value="{{ $product->price }}">
         </div>
         <div class="mb-3">
-          <label for="avatar" class="form-label">avatar</label>
-          <input class="form-control" type="file" name="avatar" id="avatar" value="{{ $product->avatar }}">
+          <label for="icon" class="form-label">Gambar</label>
+          <input class="form-control" type="file" name="icon" id="icon" value="{{ $product->icon }}">
         </div>
         <div class="mb-3">
           <label for="is_tersedia" class="form-label">is_tersedia</label>

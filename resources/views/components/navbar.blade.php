@@ -12,7 +12,7 @@
                         <a class="nav-link {{ (isset($title) && $title === 'beranda') ? 'active' : '' }}" aria-current="page" href="{{route('welcome')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/pesanan">Pemesanan</a>
+                        <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/user/pesanan">Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($title) && $title === 'notif') ? 'active' : '' }}" href="/notifikasi">Notifikasi</a>
@@ -28,7 +28,7 @@
                             @endif
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="right: 0; left: auto">
                                 <li>
-                                    <a class="dropdown-item" href="#">My Dashboard</a>
+                                    <a class="dropdown-item" href="/user/dashboard">My Dashboard</a>
                                 </li>
                                 <li><a class="dropdown-item" href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
                                     <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">

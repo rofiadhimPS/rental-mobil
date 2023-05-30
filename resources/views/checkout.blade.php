@@ -7,25 +7,38 @@
       <div class="pageTitle" style="width: 60%;">
         <h1>Pemesanan {{$product->title}}</h1>
       </div>
+      <input name="title" type="hidden" class="form-control"  id="formGroupExampleInput" value="{{$product->title}}">
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput" class="form-label" >Nama Lengkap</label>
-        <input name="name" type="text" class="form-control"  id="formGroupExampleInput" placeholder="Muhammad Ramadhan">
+        <input name="name" type="text" class="form-control"  id="formGroupExampleInput" placeholder="Muhammad Ramadhan" value="{{ old('name') }}">
+        @error('name')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput2" class="form-label">No. Hp</label>
-        <input name="phone_number" type="text" class="form-control"  id="formGroupExampleInput2" placeholder="0852****1971">
+        <input name="phone_number" type="text" class="form-control"  id="formGroupExampleInput2" placeholder="0852****1971" value="{{ old('phone_number') }}">
+        @error('phone_number')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Tanggal Pesanan</label>
-        <input name="tanggal_pesan" type="datetime-local" class="form-control"  id="formGroupExampleInput3" placeholder="Pilih Tanggal">
+        <input name="tanggal_pesan" type="datetime-local" class="form-control"  id="tanggal_pesan" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}">
+        @error('tanggal_pesan')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
-        <label for="formGroupExampleInput3" class="form-label">Lokasi Penjemputan</label>
-        <input name="lokasi_penjemputan" type="text" class="form-control"  id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin">
+        <label for="formGroupExampleInput4" class="form-label">Lokasi Penjemputan</label>
+        <input name="lokasi_penjemputan" type="text" class="form-control"  id="formGroupExampleInput4" placeholder="Ex: Bandara Hasanuddin" value="{{ old('lokasi_penjemputan') }}">
+        @error('lokasi_penjemputan')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
-        <label for="formGroupExampleInput3" class="form-label">Metode Pembayaran</label>
-        <select name="metode_pembayaran" class="form-select" aria-label="Default select example">
+        <label for="formGroupExampleInput5" class="form-label">Metode Pembayaran</label>
+        <select name="metode_pembayaran" class="form-select" aria-label="Default select example" id="payment_option">
           <option selected>Pilih</option>
           <option value="Transfer">Transfer</option>
           <option value="Cash">Cash</option>
@@ -34,6 +47,9 @@
       <div class="mb-3">
         <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
         <input name="bukti" class="form-control" type="file" id="formFile">
+        @error('bukti')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div>
         <button type="submit" class="w-100 btn btn-primary">Pesan Sekarang</button>
@@ -43,7 +59,7 @@
   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
- 
+ <script src="{{ asset('JS/optionTF.js') }}"></script>
 @endsection
 
 

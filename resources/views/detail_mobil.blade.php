@@ -29,12 +29,10 @@
   </style>
   <body>
          <!-- navbar -->
- @include('layout.navbar_login')
+ @include('components.navbar')
  <!-- akhir navbar -->
  
     <!-- cardProfil -->
- 
-    @include('layout.card_account')
     <!-- card -->
     <section class="section-pesanan mt-5">
       <div class="container">
@@ -47,10 +45,10 @@
               <div class="d-flex flex-column" >
                   <h5 class="card-title fw-bold fs-1">Fortuner</h5>
                   <p class="card-text fs-2 fw-normal m-0">Rp500.000</p>
-                  <p class="card-text"><small class="text-muted"> <img src="{{ asset('assets/star.png') }}" alt="rating rental mobil">4.0 | 8 Kali Terpesan</small> </p>
+                  <p class="card-text"><small class="text-muted"> <img src="{{ asset('images/star.png') }}" alt="rating rental mobil">4.0 | 8 Kali Terpesan</small> </p>
                   
                   <h5 class="" style="border: 1px solid #6157FF; width: fit-content; padding: 8px 40px; margin: 40px 0 20px; border-radius: 10px;">Spesifikasi</h5>
-                  <h5>Tipe Mobil        : Xxxx</h5>
+                  <h5>Tipe Mobil        : {{  }}</h5>
                   <h5>Tahun             : 2018</h5>
                   <h5>Warnae            : Silver, Hitam, Putih</h5>
                   <h5>Metode Pembayaran : Transfer dan Cash</h5>

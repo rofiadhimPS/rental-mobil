@@ -32,5 +32,9 @@
                     <input class="btn btn-primary fs-5" type="submit" value="Simpan" style="width: 35%; background-color: black; color: white; border-radius: 10px;">
                 </form>
             </div>
+            <a class="btn btn-primary fs-5" style="margin: -1.5% 0 0 8%"; href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Sign Out</a>
+                                    <form id="logout-form" action="{{route('logout')}}" method="post" style="display: none">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    </form>
 
 @endsection

@@ -40,9 +40,10 @@
                             @endif
                         </td>
                         <td>
-                            <a href="https://wa.me/082347980205?text=Hi, Saya ingin bertanya tentang mobil {{$checkout->Product->title}}" class="btn btn-primary">
+                            <a href="https://wa.me/082347980205?text=Hi, Saya ingin bertanya tentang mobil {{$checkout->Product->title}}" class="btn btn-primary btn-sm">
                                 Contact Support
                             </a>
+                            <button type="button" onclick="handleDelete({{ $checkout->id }})" class="btn btn-primary btn-sm" style=" background-color: black;  border: 0;">Batalkan Pesanan</button>
                         </td>
                     </tr>
                     @empty
@@ -56,5 +57,39 @@
             </table>
         </div>
     </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header" style="background-color: #360363;">
+              <h5 class="modal-title fs-4" id="exampleModalLabel" style="color: white;">Batalkan Pesanan?</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+              <img src="{{ asset('images/Website development.png') }}">
+            </div>
+            <div class="modal-footer d-flex flex-column">
+              <form action="" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-primary"  style="background-color: black;">Iya, Batalkan</button>
+              </form>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
 </section>
+@section('script')
+    <script>
+        function handleDelete(id){
+            var id = id;
+            var url = "{{ route('user.pesanan.destroy', ':id') }}".replace(':id', id);
+
+            $('#deleteModal').modal('show')
+            $('#deleteModal form').attr('action', url);
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 @endsection
