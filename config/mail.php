@@ -15,6 +15,27 @@ return [
 
     'default' => env('MAIL_MAILER', 'smtp'),
 
+    'driver' => env('MAIL_MAILER', 'smtp'),
+
+    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+
+    'port' => env('MAIL_PORT', 587),
+
+    'from' => [
+        'address' => env('MAIL_FROM_ADDRESS', 'bangpertepan12@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', '${APP_NAME}'),
+    ],
+
+    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+
+    'username' => env('MAIL_USERNAME', 'bangpertepan12@gmail.com'),
+
+    'password' => env('MAIL_PASSWORD', 'dcmxwwgzgetoxtij'),
+
+    'sendmail' => '/usr/sbin/sendmail -bs',
+
+    'pretend' => false,
+
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
@@ -32,6 +53,8 @@ return [
     |            "postmark", "log", "array", "failover"
     |
     */
+
+
 
     'mailers' => [
         'smtp' => [
