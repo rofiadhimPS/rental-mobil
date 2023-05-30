@@ -7,6 +7,8 @@ use App\Http\Controllers\User\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\DashboardController as UserDashboard;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\CheckoutController as AdminCheckout;
+
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductBenefitsController;
@@ -66,12 +68,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/pesanan/{id}', [UserDashboard::class, 'destroy'])->name('pesanan.destroy');
     });
     // admin dashboard
-    Route::prefix('/admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
+    Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
         Route::get('/pengguna', [UserController::class, 'index'])->name('admin_pengguna');
         Route::get('/pesanan', [CheckoutController::class, 'index'])->name('admin_pesanan');
         Route::get('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
         Route::put('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
+
+        // admin checkout
+        Route::get('/checkout', [AdminCheckout::class, 'index'])->name('checkout');
+        Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
+
+
     //    Benefits
         Route::get('/produk', [ProductController::class, 'index'])->name('admin_produk');
         Route::post('/produk/form1', [ProductBenefitsController::class, 'store'])->name('benefits.store');

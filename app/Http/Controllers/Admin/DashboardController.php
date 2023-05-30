@@ -12,8 +12,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-
-        $checkouts = Checkout::with('Product', 'User')->get();
+        $checkouts = Checkout::with('Product')->get();
         $title = 'Dashboard';
         return view('admin.admin_dashboard', [
             'checkouts' => $checkouts, 'title' => $title

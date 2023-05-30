@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cars Admin | {{  (isset($title)) }}</title>
+    <title>Cars Admin | {{$title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="css/index.css" rel="stylesheet">
     <link href="css/admin_pesanan.css" rel="stylesheet">
@@ -19,7 +19,7 @@
                 <ul class="fs-2 d-grid gap-4 " style="list-style-type: none; padding: 0;">
                     <li class="menu-list {{ (isset($title) && $title === 'Dashboard') ? 'active' : '' }}" onclick="window.location.href = '/admin/dashboard';"><img src="{{ asset('images/Vector_Dashboard.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Dashboard</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Pengguna') ? 'active' : '' }}" onclick="window.location.href = '/admin/pengguna';"><img src="{{ asset('images/Vector_Pengguna.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pengguna</a></li>
-                    <li class="menu-list {{ (isset($title) && $title === 'Pesanan') ? 'active' : '' }}" onclick="window.location.href = '/admin/pesanan';"><img src="{{ asset('images/Vector_Pesanan.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pesanan</a></li>
+                    <li class="menu-list {{ (isset($title) && $title === 'Checkout') ? 'active' : '' }}" onclick="window.location.href = '{{route('admin.checkout')}}';"><img src="{{ asset('images/Vector_Pesanan.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pesanan</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Produk') ? 'active' : '' }}" onclick="window.location.href = '/admin/produk';"><img src="{{ asset('images/Vector_Produk.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Produk</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Chat') ? 'active' : '' }}" onclick="window.location.href = '/admin/chat';"><img src="{{ asset('images/Vector_Chat.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Chat</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Notifikasi') ? 'active' : '' }}" onclick="window.location.href = '/admin/notifikasi';"><img src="{{ asset('images/Vector_Notif.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Notifikasi</a></li>
