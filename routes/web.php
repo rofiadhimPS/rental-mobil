@@ -10,7 +10,8 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductBenefitsController;
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Models\Checkout;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,14 @@ use App\Http\Controllers\Admin\ProductBenefitsController;
 */
 
 Route::get('/', [HomeProductController::class, 'index'])->name('welcome');
+Route::get('/detailmobil', [HomeProductController::class, 'mobil'])->name('mobil');
+Route::get('/masjid-99-kubah', function () {return view('artikel.masjid-99');});
+Route::get('/appalarang', function () {return view('artikel.appalarang');});
+Route::get('/bantimurung', function () {return view('artikel.bantimurung');});
+Route::get('/tips-berkendara', function () {return view('artikel.tips-berkendara');});
+Route::get('/rawat-mobil', function () {return view('artikel.rawat-mobil');});
+Route::get('/pantai-bira', function () {return view('artikel.pantai-bira');});
+Route::get('/pantai-losari', function () {return view('artikel.pantai-losari');});
 
 // socialite
 Route::get('sign-in-google', [UserController::class, 'google'])->name('user.login.google');
@@ -33,17 +42,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //checkout routes
     Route::get('checkout/success/{product}', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
     Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
+    Route::get('checkout/{product}/mail', [CheckoutController::class, 'store'])->name('checkout.store.mail')->middleware('ensureUserRole:user');;
     Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
-
+    
     // Halaman
     Route::get('/detailmobil', function () {
         return view('detail_mobil');
     });
-    Route::get('/pesanan', function () {
-        return view('pesanan', [
-            'title'=>"pesan"
-        ]);
-    });
+
     Route::get('/notifikasi', function () {
         return view('notifikasi', [
             'title'=>"notif"
@@ -53,14 +59,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //dashboard 
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     //user dashboard
-    Route::prefix('user/dashboard')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
-        Route::get('/', [UserDashboard::class, 'index'])->name('dashboard');
+    Route::prefix('/user')->namespace('User')->name('user.')->middleware('ensureUserRole:user')->group(function(){
+        Route::get('/dashboard', [UserDashboard::class, 'index'])->name('dashboard');
+        Route::delete('/dashboard/{id}', [UserDashboard::class, 'destroy'])->name('dashboard.destroy');
+        Route::get('/pesanan', [UserDashboard::class, 'show'])->name('pesanan');
+        Route::delete('/pesanan/{id}', [UserDashboard::class, 'destroy'])->name('pesanan.destroy');
     });
     // admin dashboard
     Route::prefix('/admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
         Route::get('/pengguna', [UserController::class, 'index'])->name('admin_pengguna');
         Route::get('/pesanan', [CheckoutController::class, 'index'])->name('admin_pesanan');
+        Route::get('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
+        Route::put('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
     //    Benefits
         Route::get('/produk', [ProductController::class, 'index'])->name('admin_produk');
         Route::post('/produk/form1', [ProductBenefitsController::class, 'store'])->name('benefits.store');
@@ -93,6 +104,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
     });
 });
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
