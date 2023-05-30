@@ -9,32 +9,50 @@
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput" class="form-label" >Nama Lengkap</label>
-        <input name="name" type="text" class="form-control"  id="formGroupExampleInput" placeholder="Muhammad Ramadhan">
+        <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  id="formGroupExampleInput" value="{{Auth::user()->name}}">
+        @if ($errors->has('name'))
+          <p class="text-danger">{{$errors->first('name')}}</p>
+        @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput2" class="form-label">No. Hp</label>
-        <input name="phone_number" type="text" class="form-control"  id="formGroupExampleInput2" placeholder="0852****1971">
+        <input name="phone_number" type="text" class="form-control {{$errors->has('phone_number') ? 'is-invalid' : ''}}"  id="formGroupExampleInput2" placeholder="082xxxxxxxxx" value="{{ old('phone_number') }}">
+        @if ($errors->has('phone_number'))
+          <p class="text-danger">{{$errors->first('phone_number')}}</p>
+        @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Tanggal Pesanan</label>
-        <input name="tanggal_pesan" type="datetime-local" class="form-control"  id="formGroupExampleInput3" placeholder="Pilih Tanggal">
+        <input name="tanggal_pesan" type="datetime-local" class="form-control {{$errors->has('tanggal_pesan') ? 'is-invalid' : ''}}"  id="formGroupExampleInput3" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}">
+        @if ($errors->has('tanggal_pesan'))
+          <p class="text-danger">{{$errors->first('tanggal_pesan')}}</p>
+        @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Lokasi Penjemputan</label>
-        <input name="lokasi_penjemputan" type="text" class="form-control"  id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin">
+        <input name="lokasi_penjemputan" type="text" class="form-control {{$errors->has('lokasi_penjemputan') ? 'is-invalid' : ''}}" id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin"  value="{{ old('lokasi_penjemputan') }}">
+        @if ($errors->has('lokasi_penjemputan'))
+          <p class="text-danger">{{$errors->first('lokasi_penjemputan')}}</p>
+        @endif
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Metode Pembayaran</label>
-        <select name="metode_pembayaran" class="form-select" aria-label="Default select example">
-          <option selected>Pilih</option>
-          <option value="Transfer">Transfer</option>
-          <option value="Cash">Cash</option>
+        <select name="metode_pembayaran" class="form-select {{$errors->has('metode_pembayaran') ? 'is-invalid' : ''}}" aria-label="Default select example">
+            <option value="" disabled hidden>Pilih Metode</option>
+            <option value="Transfer" {{ old('metode_pembayaran') === 'Transfer' ? 'selected' : '' }}>Transfer</option>
+            <option value="Cash" {{ old('metode_pembayaran') === 'Cash' ? 'selected' : '' }}>Cash</option>
         </select>
-          </div>
-      <div class="mb-3">
-        <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
-        <input name="bukti" class="form-control" type="file" id="formFile">
-      </div>
+        @if ($errors->has('metode_pembayaran'))
+            <p class="text-danger">{{$errors->first('metode_pembayaran')}}</p>
+        @endif
+    </div>    
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
+      <input name="bukti" class="form-control {{$errors->has('bukti') ? 'is-invalid' : ''}}" type="file" id="formFile">
+      @if ($errors->has('bukti'))
+          <p class="text-danger">{{$errors->first('bukti')}}</p>
+      @endif
+  </div>  
       <div>
         <button type="submit" class="w-100 btn btn-primary">Pesan Sekarang</button>
       </div>

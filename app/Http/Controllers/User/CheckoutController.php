@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
+use App\Http\Requests\User\Checkout\Store;
 use App\Models\Product;
 use App\Models\ProductBenefit;
 use Auth;
@@ -33,8 +34,9 @@ class CheckoutController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, Product $product)
+    public function store(Store $request, Product $product)
     {
+        return $request->all();
         // Mengambil data dari permintaan
         $data = $request->except('bukti'); // Mengabaikan input 'bukti'
     

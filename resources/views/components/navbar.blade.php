@@ -28,7 +28,11 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li>
-                                <a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard Saya</a>
+                                @if (Auth::user()->is_admin)
+                                    <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard Saya</a>
+                                @else
+                                    <a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard Saya</a>
+                                @endif
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Keluar</a>
