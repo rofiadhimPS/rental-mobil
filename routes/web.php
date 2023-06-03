@@ -71,9 +71,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
         Route::get('/dashboard', [AdminDashboard::class, 'index'])->name('dashboard');
         Route::get('/pengguna', [UserController::class, 'index'])->name('admin_pengguna');
-        Route::get('/pesanan', [CheckoutController::class, 'index'])->name('admin_pesanan');
-        Route::get('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
-        Route::put('/pesanan/{id}/update', [CheckoutController::class, 'ubahStatus'])->name('checkout.ubahstatus');
+        Route::get('/checkout/{id}/update', [AdminCheckout::class, 'ubahStatus'])->name('checkout.ubahstatus');
+        Route::put('/checkout/{id}/update', [AdminCheckout::class, 'ubahStatus'])->name('checkout.ubahstatus');
 
         // admin checkout
         Route::get('/checkout', [AdminCheckout::class, 'index'])->name('checkout');
