@@ -26,4 +26,19 @@ class CheckoutController extends Controller
         $request->session()->flash('success', "Checkout with Id {$checkout->id} has been updated!");
         return redirect(route('admin.checkout'));
     }
+
+    public function ubahStatus(Request $request, $id)
+    {
+        $checkout = Checkout::findOrFail($id);
+
+        $request->validate([
+            'status' => 'required|in:proses,penjemputan,selesai',
+        ]);
+
+        $statusLama = $checkout->status;
+        $checkout->status = $request->status;
+        $checkout->save();
+
+        return redirect()->route('admin.checkout');        
+    }
 }

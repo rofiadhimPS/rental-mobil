@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function index(){
         $products = Product::all();
-        return view('admin.admin_produk', ['products' => $products]);
+        $title = 'Produk';
+        return view('admin.admin_produk', ['products' => $products, 'title' => $title]);
     }
 
     public function create(){
@@ -33,9 +34,9 @@ class ProductController extends Controller
         $product->is_tersedia = $request->input('is_tersedia');
         if ($request->hasFile('icon')) {
             $image = $request->file('icon');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $product->icon = $imageName;
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images/product'), $imageName);
+            $product->icon = 'product/' . $imageName;
         }
 
         $product->save();
@@ -72,9 +73,14 @@ class ProductController extends Controller
     }
 
     public function destroy($id){
-        $product = Product::find($id);
-        $product::destroy($id);
+        $product = Product::find($id);if ($product->icon) {
+            $imagePath = public_path('images') . '/' . $product->icon;
+            if (file_exists($imagePath)) {
+                unlink($imagePath);
+            }
+        }
         $product->delete();
+        $product::destroy($id);
 
         return redirect()->route('admin.admin_produk');
     }

@@ -88,20 +88,6 @@ class CheckoutController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function ubahStatus(Request $request, $id)
-    {
-        $checkout = Checkout::findOrFail($id);
-
-        $request->validate([
-            'status' => 'required|in:proses,penjemputan,selesai',
-        ]);
-
-        $statusLama = $checkout->status;
-        $checkout->status = $request->status;
-        $checkout->save();
-
-        return redirect()->route('admin.admin_pesanan');        
-    }
 
     /**
      * Update the specified resource in storage.

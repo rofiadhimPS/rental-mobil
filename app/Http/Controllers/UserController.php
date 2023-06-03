@@ -18,6 +18,15 @@ class UserController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
+    
+    public function index()
+    {
+        $users = User::all();
+        $title = 'pesan';
+        return view('admin.admin_pengguna', [
+            'users' => $users, 'title' => $title
+        ]);
+    }
 
     public function handleProviderCallback()
     {
