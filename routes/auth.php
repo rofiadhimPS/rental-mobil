@@ -20,6 +20,8 @@ Route::middleware('guest')->group(function () {
 
     Route::get('login', [UserController::class, 'login'])->name('login');
     
+    Route::post('login/masuk', [UserController::class, 'Masuk'])->name('login.ulang');
+
     Route::get('login/admin', [AuthenticatedSessionController::class, 'create'])
                 ->name('login.admin');
 

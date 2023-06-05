@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Hash;
 use Auth;
 
 class UserController extends Controller
@@ -47,6 +50,38 @@ class UserController extends Controller
         Auth::login($user, true);
 
         return redirect(route('welcome'));
+    }
+
+    public function Masuk(Request $request)
+    {
+        $loginField = $request->input('login');
+        $password = $request->input('password');
+        $remember = $request->has('remember');
+
+        $user = User::where(function ($query) use ($loginField) {
+            $query->where('email', $loginField)
+                  ->orWhere('no_telp', $loginField)
+                  ->orWhere('name', $loginField);
+        })->first();
+
+        if ($user && Hash::check($password, $user->password)) {
+            
+            if ($user->is_admin == 1) {
+                
+                Auth::login($user, $remember);
+                $expiration = Carbon::now()->addMonth(1)->toDateTimeString();
+                return redirect()->intended('/admin/dashboard')
+                    ->withCookie(cookie('remember_token', $user->remember_token, $expiration));
+            } else {
+                
+                Auth::login($user, $remember);
+                $expiration = Carbon::now()->addMonth(1)->toDateTimeString();
+                return redirect()->intended('/')
+                    ->withCookie(cookie('remember_token', $user->remember_token, $expiration));
+            }
+        } else {
+            return redirect()->back()->withErrors(['message' => 'Username, email, atau nomor telepon atau password salah.']);
+        }
     }
     
 }

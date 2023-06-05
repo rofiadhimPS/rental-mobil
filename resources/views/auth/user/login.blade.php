@@ -130,19 +130,26 @@
       <div class="d-flex align-items-center"style="margin-left: 7%">
         <div class="d-flex flex-column p-2" >
         <h1 class="loginTitle" style="padding: 10px;margin-top: 15%;">Log In</h1>
+        <form action="{{ route('login.ulang') }}" method="POST">
+          @csrf
         <div class="mb-3">
           <input
             type="email"
+            name="login"
             class="form-control-lg w-100"
             id="exampleFormControlInput1"
             placeholder="Nomor Telepon/Username/Email"
           >
+          @error('login')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
         </div>
         <div class="mb-3">
           <div class="input-group flex-nowrap">
             <input
               type="password"
               id="pass"
+              name="password"
               class="form-control-lg w-100"
               placeholder="Password"
               aria-label="Username"
@@ -156,16 +163,24 @@
               <i class="fas fa-eye-slash" id="icon"></i>
             </span>
           </div>
+          @error('password')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
         </div>
         <div>
-          <a
-            href="/"
+          <button
+            type="submit"
             class="btn btn-primary btn-lg w-100"
             style="background-color: #340867; border: none;"
           >
             Log In
-          </a>
+          </button>
         </div>
+        <div class="mb-1 mt-1">
+          <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+            Remember Me
+        </div>
+      </form>
         <div class="d-flex justify-content-between mt-2">
           <div>
             <a href="{{route('register')}}" class="fs-6 text-decoration-none">Buat Akun</a>
