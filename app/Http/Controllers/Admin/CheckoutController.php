@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Checkout;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\StatusOrder;
 use App\Models\User;
 use Auth;
 
@@ -30,14 +32,15 @@ class CheckoutController extends Controller
     public function ubahStatus(Request $request, $id)
     {
         $checkout = Checkout::findOrFail($id);
-
         $request->validate([
             'status' => 'required|in:proses,penjemputan,selesai',
         ]);
 
-        $statusLama = $checkout->status;
         $checkout->status = $request->status;
         $checkout->save();
+
+        $userEmail = $checkout->User->email;
+        Mail::to($userEmail)->send(new StatusOrder($checkout));
 
         return redirect()->route('admin.checkout');        
     }

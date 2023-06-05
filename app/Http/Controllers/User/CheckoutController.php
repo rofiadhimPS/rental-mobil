@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\KirimCepat;
 use App\Models\Checkout;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -67,8 +68,7 @@ class CheckoutController extends Controller
         $user->save();
 
         $checkout = Checkout::create($check);
-        $ownerEmail = 'bangpertepan12@gmail.com';
-        Mail::to($ownerEmail)->send(new OrderKonfirmasi($checkout));
+        dispatch(new KirimCepat($checkout));
 
         return redirect(route('checkout.success', $product->id));
 
@@ -84,6 +84,7 @@ class CheckoutController extends Controller
         $title = 'pesan';
         return view('pesanan', ['checkout' => $exists, 'title' => $title]);
     }
+    
 
     /**
      * Show the form for editing the specified resource.

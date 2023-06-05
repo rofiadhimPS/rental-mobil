@@ -21,13 +21,14 @@ class DashboardController extends Controller
     {
         
         $userId = Auth::id();
+        $title = 'pesan';
 
         $pesans = Checkout::where('user_id', $userId)
             ->orderBy('tanggal_pesan', 'asc')
             ->limit(1)
             ->get();
 
-        return view('user.pesanan', ['pesans' => $pesans]);
+        return view('user.pesanan', ['pesans' => $pesans, 'title' => $title]);
     }
     public function destroy($id)
 {

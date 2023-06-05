@@ -13,6 +13,10 @@ class UserController extends Controller
     {
         return view('auth.user.login');
     }
+    public function Register()
+    {
+        return view('auth.user.register');
+    }
 
     public function google()
     {
