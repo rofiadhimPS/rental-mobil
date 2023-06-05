@@ -15,8 +15,19 @@ class Product extends Model
         'slug',
         'price',
         'icon',
-        'is_tersedia',
+        'tahun',
+        'seat',
+        'metode_bayar',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($checkout){
+            $checkout->is_tersedia = 1;
+        });
+    }
 
     public function productBenefit()
     {

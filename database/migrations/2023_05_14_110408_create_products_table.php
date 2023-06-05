@@ -15,8 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title', 100);
             $table->string('slug', 100);
+            $table->string('tahun');
+            $table->integer('seat');
+            $table->string('metode_bayar');
             $table->string('icon')->default('/public/images')->nullable();
-            $table->integer('price')->unsigned();
+            $table->string('price');
             $table->boolean('is_tersedia')->default(true);
             $table->timestamps();
             $table->softDeletes();

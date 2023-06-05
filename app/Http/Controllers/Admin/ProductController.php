@@ -23,15 +23,19 @@ class ProductController extends Controller
         $request->validate([
             'title' => 'required',
             'slug' => 'required',
+            'tahun' => 'required',
+            'seat' => 'required',
+            'metode_bayar' => 'required',
             'icon' => 'required|image',
-            'price' => 'required|integer',
-            'is_tersedia' => 'required',
+            'price' => 'required',
         ]);
         $product = new Product;
         $product->title = $request->input('title');
         $product->slug = $request->input('slug');
+        $product->tahun = $request->input('tahun');
+        $product->seat = $request->input('seat');
+        $product->metode_bayar = $request->input('metode_bayar');
         $product->price = $request->input('price');
-        $product->is_tersedia = $request->input('is_tersedia');
         if ($request->hasFile('icon')) {
             $image = $request->file('icon');
             $imageName = $image->getClientOriginalName();
@@ -46,7 +50,7 @@ class ProductController extends Controller
 
     public function edit($id){
         $product = Product::find($id);
-        return view('edit_mobil', compact('product'));
+        return view('admin.product.edit_mobil', compact('product'));
     }
     
     public function update(Request $request, $id){
@@ -69,7 +73,7 @@ class ProductController extends Controller
 
         $product->save();
         
-        return redirect()->back();
+        return redirect()->route('admin.admin_produk');
     }
 
     public function destroy($id){
