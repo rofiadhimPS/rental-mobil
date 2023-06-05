@@ -46,7 +46,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
     Route::get('checkout/{product}/mail', [CheckoutController::class, 'store'])->name('checkout.store.mail')->middleware('ensureUserRole:user');;
     Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
-    
     // Halaman
     Route::get('/detailmobil', function () {
         return view('detail_mobil');
@@ -78,7 +77,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/checkout', [AdminCheckout::class, 'index'])->name('checkout');
         Route::post('checkout/{checkout}', [AdminCheckout::class, 'update'])->name('checkout.update');
 
-
     //    Benefits
         Route::get('/produk', [ProductController::class, 'index'])->name('admin_produk');
         Route::post('/produk/form1', [ProductBenefitsController::class, 'store'])->name('benefits.store');
@@ -94,11 +92,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
             return view('admin.product.tambah_mobil',[
             ]);
         });
-        Route::get('/akun', function () {
-            return view('admin.admin_akun', [
-                'title'=>"Akun"
-            ]);
-        });
+
+        Route::get('/akun', [AdminDashboard::class, 'show'])->name('akun');
+        Route::post('/akun', [AdminDashboard::class, 'Editakun'])->name('akun.update');
+
         Route::get('/chat', function () {
             return view('admin.admin_chat', [
                 'title'=>"Chat"
