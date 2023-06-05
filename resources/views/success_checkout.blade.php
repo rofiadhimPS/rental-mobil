@@ -29,9 +29,9 @@
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
                                 <h5 class="" style="border: 1px solid #6157FF; width: fit-content; padding: 8px 40px; margin: 40px 0 20px; border-radius: 10px;">Spesifikasi</h5>
-                                <h5>Tipe Mobil        : {{$product->productBenefit->tipe_mobil}} </h5>
-                                <h5>Tahun             : {{$product->productBenefit->tahun}}</h5>
-                                <h5>Warna            : {{$product->productBenefit->warna}}</h5>
+                                <h5>Tipe Mobil        : {{$product->title}} </h5>
+                                <h5>Tahun             : {{$product->tahun}}</h5>
+                                <h5>Warna            : {{$product->warna}}</h5>
                                 <h5>Metode Pembayaran : {{$checkout->metode_pembayaran }}</h5>
                             </div>
                             

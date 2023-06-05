@@ -19,7 +19,7 @@
                     @forelse ($checkouts as $checkout)
                     <tr class="align-middle">
                         <td width="18%">
-                            <img src="/assets/images/item_bootcamp.png" height="120" alt=" ">
+                            <img src="{{ asset('images/'.$checkout->Product->icon) }}" height="120" alt=" ">
                         </td>
                         <td>
                             <p class=" mb-2 ">
@@ -30,7 +30,7 @@
                             </p>
                         </td>
                         <td>
-                            <strong>Rp {{$checkout->Product->price}}k</strong>
+                            <strong>Rp {{$checkout->Product->price}}</strong>
                         </td>
                         <td>
                             @if ($checkout->is_paid)

@@ -21,7 +21,7 @@
                     <img class="card-img-top" src="{{ asset('images/'.$product->icon) }}" alt="Card image cap" style="padding: 5%;">
                     <div class="card-body d-flex flex-column justify-content-center">
                       <h5 class="card-title">{{ $product->title }}</h5>
-                      <p class="card-text">{{ $product->price }}K/Hari</p>
+                      <p class="card-text">{{ $product->price }}/Hari</p>
                       <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-primary">Edit</a>
                       <form class="mt-1 d-flex justify-content-center" action="{{ route('admin.product.destroy', $product->id) }}" method="POST">
                         @csrf

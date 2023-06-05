@@ -80,7 +80,7 @@
            <!-- akhir slider-->
            
          <!-- Chat -->
-         <button class="btn btn-primary fixed-bottom  m-3 rounded-3 " style="width: 50px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="{{ asset('images/chat.png') }}" style="width: 25px;" alt=""></button>
+         {{-- <button class="btn btn-primary fixed-bottom  m-3 rounded-3 " style="width: 50px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><img src="{{ asset('images/chat.png') }}" style="width: 25px;" alt=""></button>
     
       <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
         <div class="offcanvas-header">
@@ -101,7 +101,7 @@
             </div>
           </div>
         </div>
-      </div>   
+      </div>    --}}
           
        </div>
     
@@ -197,11 +197,10 @@
                       </div>
                       <div class="col-6">
                         <div class="p-3">
-                          <img src="images/rating.png" alt="rating" />
                         </div>
                       </div>
                       <div class="col-6">
-                        <div class="p-0"><h5>Rp.{{ $product->price }}K/hari</h5></div>
+                        <div class="p-0"><h5>Rp.{{ $product->price }}/hari</h5></div>
                       </div>
                     </div>
                   </div>
@@ -209,7 +208,7 @@
                     <button><a href="{{route('checkout.create', $product->id)}}">Rental Sekarang</a></button>
                   </div>
                   <div class="buttonDetail">
-                    <a href="/detailmobil">Detail</a>
+                    <a href="{{route('mobil.detail', $product->id)}}">Detail</a>
                   </div>
                 </div>
               </div>
