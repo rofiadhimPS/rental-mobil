@@ -47,9 +47,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('checkout/{product}/mail', [CheckoutController::class, 'store'])->name('checkout.store.mail')->middleware('ensureUserRole:user');;
     Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
     // Halaman
-    Route::get('/detailmobil', function () {
-        return view('detail_mobil');
-    });
+    Route::get('/detailmobil/{product}',  [HomeProductController::class, 'detail'])->name('mobil.detail');;
 
     Route::get('/notifikasi', function () {
         return view('notifikasi', [

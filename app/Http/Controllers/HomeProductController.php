@@ -20,6 +20,17 @@ class HomeProductController extends Controller
         $title = 'beranda';
         return view('detail_mobil', ['products' => $products, 'title' => $title]);
     }
+    public function detail($id){
+        $products = Product::find($id);
+        $checkouts = Checkout::where('product_id', $id)
+        ->pluck('tanggal_pesan')
+        ->all();
+
+        
+
+        $title = 'beranda';
+        return view('detail_mobil', ['products' => $products, 'title' => $title, 'checkouts' => $checkouts]);
+    }
 
     public function show()
     {
