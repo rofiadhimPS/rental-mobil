@@ -51,10 +51,10 @@ class CheckoutController extends Controller
     
         // Mengunggah gambar
         if ($request->hasFile('bukti')) {
-            $imagePath = $request->file('bukti')->store('public/images/bukti');
-            $check['bukti_transfer'] = $imagePath;
-        } else {
-            $check['bukti_transfer'] = null; // Atur nilai null jika tidak ada file yang diunggah
+            $image = $request->file('bukti');
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images/bukti'), $imageName);
+            $product->icon = 'bukti/' . $imageName;
         }
         
 
