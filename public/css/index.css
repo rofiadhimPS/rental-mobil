@@ -221,7 +221,11 @@
     }
     
     .menu-list__icon {
-      width: 30%;
+      width: 22%;
+    }
+
+    .menu-ul{
+        margin-top: 25%;
     }
     
     .menu-list a {

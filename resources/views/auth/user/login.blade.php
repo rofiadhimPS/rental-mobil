@@ -96,7 +96,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rental Mobil</title>
+    <title>Rental Mobil | Login</title>
     <meta
       name="description"
       content="Rental mobil Makassar menyediakan sewa mobil dengan pelayanan berkualitas, murah dan mengutamakan kenyamanan. Rental mobil makassar menyediakan berbagai macam mobil sesuai dengan kebutuhan dan keinginan client."
@@ -114,42 +114,36 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <style>
-      .loginTitle {
-        padding: 10px;
-        margin-top: 15%;
-      }
-    </style>
   </head>
-  <body>
+  <body class="d-flex justify-content-center justify-align-center">
     <!-- card -->
     <div 
-      class="card d-flex flex-row flex-wrap justify-content-center align-items-center mb-3 mx-auto" 
-      style="margin: 4% 0; width: 70%;border-radius: 10px; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%);"
+    class="card d-flex flex-row flex-center mb-3 mx-5 justify-content-center" style="margin: 4% 0; width: 70%;border-radius: 10px; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%); flex-wrap:wrap; align-items:center;"
     >
-      <div class="w-50">
+      <div class="d-flex align-items-center justify-content-center">
         <img
           style="width:100%; height: 492px"
           src="{{ asset('images/gambar-login.png') }}"
-          alt="Gambar Login"
+          alt="login rental mobil makassar"
         />
       </div>
-      <div class="w-50 px-4 py-5">
-        <h1 class="loginTitle">Log In</h1>
+      <div class="d-flex align-items-center"style="margin-left: 7%">
+        <div class="d-flex flex-column p-2" >
+        <h1 class="loginTitle" style="padding: 10px;margin-top: 15%;">Log In</h1>
         <div class="mb-3">
           <input
             type="email"
-            class="form-control form-control-lg"
+            class="form-control-lg w-100"
             id="exampleFormControlInput1"
             placeholder="Nomor Telepon/Username/Email"
-          />
+          >
         </div>
         <div class="mb-3">
           <div class="input-group flex-nowrap">
             <input
               type="password"
               id="pass"
-              class="form-control form-control-lg"
+              class="form-control-lg w-100"
               placeholder="Password"
               aria-label="Username"
               aria-describedby="addon-wrapping"
@@ -163,7 +157,7 @@
             </span>
           </div>
         </div>
-        <div class="mb-3">
+        <div>
           <a
             href="/"
             class="btn btn-primary btn-lg w-100"
@@ -172,8 +166,13 @@
             Log In
           </a>
         </div>
-        <div class="d-flex justify-content-end">
-          <a href="#" class="fs-6 text-decoration-none">Lupa Password?</a>
+        <div class="d-flex justify-content-between mt-2">
+          <div>
+            <a href="{{route('register')}}" class="fs-6 text-decoration-none">Buat Akun</a>
+          </div>
+          <div>
+            <a href="#" class="fs-6 text-decoration-none">Lupa Password?</a>
+          </div>
         </div>
         <div class="d-flex justify-content-center mt-5">
           <p class="fs-4">atau</p>
@@ -194,6 +193,7 @@
             />
             Google
           </a>
+        </div>
         </div>
       </div>
     </div>

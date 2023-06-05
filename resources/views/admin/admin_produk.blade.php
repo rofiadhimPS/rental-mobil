@@ -15,7 +15,7 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-wrap d-grid gap-5" style="padding: 0 0 0 3%;">
+            <div class="d-flex flex-wrap d-grid gap-5 justify-content-center" style="padding: 0 0 0 3%;">
                 @foreach ($products as $product)
                 <div class="card" style="width: 18rem; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%);">
                     <img class="card-img-top" src="{{ asset('images/'.$product->icon) }}" alt="Card image cap" style="padding: 5%;">

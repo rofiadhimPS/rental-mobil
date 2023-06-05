@@ -13,9 +13,6 @@
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/user/pesanan">Pemesanan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ (isset($title) && $title === 'notif') ? 'active' : '' }}" href="/notifikasi">Notifikasi</a>
-                    </li>
                     {{-- sudah login --}}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

@@ -30,7 +30,7 @@
               <img style="width:100%;" src="{{ asset('images/toyota-rush1_prev_ui_left.png') }}" >
             </div>
             <div class="d-flex align-items-center"style="margin-left: 7%">
-              <div class="d-flex flex-column" >
+              <div class="d-flex flex-column mb-3 mt-1" >
                   <h5 class="card-title fw-bold fs-1">Fortuner</h5>
                   <p class="card-text fs-2 fw-normal m-0">Rp500.000</p>
                   <p class="card-text"><small class="text-muted"> <img src="{{ asset('images/star.png') }}" alt="rating rental mobil">4.0 | 8 Kali Terpesan</small> </p>
@@ -39,7 +39,8 @@
                   <h5>Tipe Mobil          : {{ $pesan->product->title }}</h5>
                   <h5>Tanggal Penjemputan : {{ $pesan->tanggal_pesan }}</h5>
                   <h5>Lokasi Penjemputan  : {{ $pesan->lokasi_penjemputan }}</h5>
-                  <h5>Metode Pembayaran  : {{ $pesan->metode_pembayaran }}</h5>
+                  <h5>Metode Pembayaran   : {{ $pesan->metode_pembayaran }}</h5>
+                  <h5>Status              : {{ $pesan->status ? $pesan->status : '-' }}</h5>
 
               </div> 
             </div>   
