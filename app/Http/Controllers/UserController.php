@@ -69,15 +69,13 @@ class UserController extends Controller
             if ($user->is_admin == 1) {
                 
                 Auth::login($user, $remember);
-                $expiration = Carbon::now()->addMonth(1)->toDateTimeString();
                 return redirect()->intended('/admin/dashboard')
-                    ->withCookie(cookie('remember_token', $user->remember_token, $expiration));
+                    ->withCookie(cookie('remember_token', $user->remember_token, 44640));
             } else {
                 
                 Auth::login($user, $remember);
-                $expiration = Carbon::now()->addMonth(1)->toDateTimeString();
                 return redirect()->intended('/')
-                    ->withCookie(cookie('remember_token', $user->remember_token, $expiration));
+                    ->withCookie(cookie('remember_token', $user->remember_token, 44640));
             }
         } else {
             return redirect()->back()->withErrors(['message' => 'Username, email, atau nomor telepon atau password salah.']);
