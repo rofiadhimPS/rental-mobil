@@ -30,6 +30,40 @@ class DashboardController extends Controller
 
         return view('user.pesanan', ['pesans' => $pesans, 'title' => $title]);
     }
+    
+    public function menuAkun()
+    {
+        
+        $user = Auth::user();
+
+        return view('editakun', ['user' => $user]);
+    }
+
+    public function updateAkun(Request $request)
+    {
+        
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->no_telp = $request->input('no_telp');
+        if($request->hasFile('avatar')){
+            if ($user->avatar){
+                $this->deleteAvatar($user->avatar);
+            }
+            
+            $image = $request->file('avatar');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/profil'), $imageName);
+            $user->avatar = $imageName;
+        }
+        
+
+        $user->save();
+        
+        return redirect()->back();
+    }
+
+
     public function destroy($id)
 {
     $checkout = Checkout::findOrFail($id);

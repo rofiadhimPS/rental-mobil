@@ -9,6 +9,7 @@
     <link href="css/admin_pesanan.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin_pesanan.css') }}">
+    @yield('style')
   </head>
   <body>
 
@@ -21,8 +22,6 @@
                     <li class="menu-list {{ (isset($title) && $title === 'Pengguna') ? 'active' : '' }}" onclick="window.location.href = '/admin/pengguna';"><img src="{{ asset('images/Vector_Pengguna.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pengguna</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Checkout') ? 'active' : '' }}" onclick="window.location.href = '{{route('admin.checkout')}}';"><img src="{{ asset('images/Vector_Pesanan.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pesanan</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Produk') ? 'active' : '' }}" onclick="window.location.href = '/admin/produk';"><img src="{{ asset('images/Vector_Produk.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Produk</a></li>
-                    <li class="menu-list {{ (isset($title) && $title === 'Chat') ? 'active' : '' }}" onclick="window.location.href = '/admin/chat';"><img src="{{ asset('images/Vector_Chat.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Chat</a></li>
-                    <li class="menu-list {{ (isset($title) && $title === 'Notifikasi') ? 'active' : '' }}" onclick="window.location.href = '/admin/notifikasi';"><img src="{{ asset('images/Vector_Notif.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Notifikasi</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Akun') ? 'active' : '' }}" onclick="window.location.href = '/admin/akun';"><img src="{{ asset('images/Vector_Akun.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Akun</a></li>
                 </ul>
             </div>

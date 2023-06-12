@@ -21,8 +21,9 @@ class HomeProductController extends Controller
         return view('detail_mobil', ['products' => $products, 'title' => $title]);
     }
     public function detail($id){
-        $products = Product::find($id);
-        $checkouts = Checkout::where('product_id', $id)
+        $productId = decrypt($id);
+        $products = Product::find($productId);
+        $checkouts = Checkout::where('product_id', $productId)
         ->pluck('tanggal_pesan')
         ->all();
 

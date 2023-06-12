@@ -66,9 +66,9 @@ class ProductController extends Controller
             }
 
             $image = $request->file('icon');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $product->icon = $imageName;
+            $imageName = $image->getClientOriginalName();
+            $image->move(public_path('images/product'), $imageName);
+            $product->icon = 'product/' . $imageName;
         }
 
         $product->save();
@@ -77,7 +77,8 @@ class ProductController extends Controller
     }
 
     public function destroy($id){
-        $product = Product::find($id);if ($product->icon) {
+        $product = Product::find($id);
+        if ($product->icon) {
             $imagePath = public_path('images') . '/' . $product->icon;
             if (file_exists($imagePath)) {
                 unlink($imagePath);

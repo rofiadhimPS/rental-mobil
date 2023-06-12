@@ -21,6 +21,7 @@
         />
         <link rel="icon" href="{{asset('images/tkro.png')}}" />
         <link rel="stylesheet" href="{{asset('css/welcome.css')}}" />
+        @yield('style')
     </head>
     <body>
         <!-- navbar -->

@@ -205,10 +205,10 @@
                     </div>
                   </div>
                   <div class="buttonProduk">
-                    <button><a href="{{route('checkout.create', $product->id)}}">Rental Sekarang</a></button>
+                    <button><a href="{{route('checkout.create', encrypt($product->id))}}">Rental Sekarang</a></button>
                   </div>
                   <div class="buttonDetail">
-                    <a href="{{route('mobil.detail', $product->id)}}">Detail</a>
+                    <a href="{{route('mobil.detail', encrypt($product->id))}}">Detail</a>
                   </div>
                 </div>
               </div>
@@ -290,7 +290,7 @@
                 <div class="kerjasama shadow-sm border border-1 p-4 m-2 rounded">
                   <h3>Ingin Melakukan Kerjasama dengan Kami?</h3>
                   <p>Hubungi Kami</p>
-                  <a href="#"><img style="width: 50px" src="images/informasi kerja sama rental mobil.png" alt="informasi kerja sama rental mobil" style="background:none;"></a>
+                  <a href="https://wa.me/081343512555?text=Hi"><img style="width: 50px" src="images/informasi kerja sama rental mobil.png" alt="informasi kerja sama rental mobil" style="background:none;"></a>
             
                 </div>
               </div>
@@ -371,8 +371,8 @@
                   <h1>Cv.Adinalta</h1>
                   <p>Rental mobil Makassar berkulitas, terjangkau dan Aman</p>
                   <div class="wrapper-icon d-flex">
-                    <a href="#"><img src="images/facebook-cv.adinalta.png" alt="facebook cv.adinalta"></a>
-                    <a href="#"><img src="images/instagram-cv.adinalta.png" alt="instagram cv.adinalta"></a>
+                    <a href="https://www.facebook.com/profile.php?id=100092615414546"><img src="images/facebook-cv.adinalta.png" alt="facebook cv.adinalta"></a>
+                    <a href="https://instagram.com/cv.adinalta?igshid=NGExMmI2YTkyZg=="><img src="images/instagram-cv.adinalta.png" alt="instagram cv.adinalta"></a>
                     <a href="#"><img src="images/twitter-cv.adinalta.png" alt="twitter cv.adinalta"></a>                
                   </div>
               </div>
@@ -389,7 +389,7 @@
               <div class="col" id="colFooter">
                 <div class="wrapper-col-3">
                   <h1>Artikel</h1>
-                  <p><a href="/tips-berkendara">10 Tips Aman Berkendera</a></p>
+                  <p><a href="/tips-berkendara" class="text-decoration-none text-white">10 Tips Aman Berkendera</a></p>
                   <p>Cara Merawat Mobil Agar Terlihat Baru</p>
                   <p>Mulai Berbisnis Rental Mobil</p>
                   <p>Cara Menghilangkan Bau Pada Mobil</p>
@@ -398,9 +398,9 @@
               <div class="col" id="colFooter">
                 <div class="wrapper-col-3">
                   <h1>Contact Us</h1>
-                  <p>info@teamapp.com</p><a href="/rawat-mobil">Cara Merawat Mobil Agar Terlihat Baru</a>
-                  <p><a href="/rawat-mobil">Cara Merawat Mobil Agar Terlihat Baru</a></p>
-                  <p>0821 2389 2913</p>
+                  <p>info@rentalmobilmakassacity.com</p><a href="/rawat-mobil" class="text-decoration-none text-white">Cara Merawat Mobil Agar Terlihat Baru</a>
+                  <p><a href="/rawat-mobil" class="text-decoration-none text-white">Cara Merawat Mobil Agar Terlihat Baru</a></p>
+                  <p>0813-4351-2555</p>
                   <p>2972 Westheimer Rd. Santa Ana, Illinois 85486 </p>
                 </div>
               </div>

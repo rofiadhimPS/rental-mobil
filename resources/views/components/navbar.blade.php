@@ -18,7 +18,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             Halo, {{ Auth::user()->name }}!
                             @if (Auth::user()->avatar)
-                                <img src="{{ Auth::user()->avatar }}" alt="" width="30" height="24" style="border-radius: 50%">
+                                <img src="{{ filter_var(Auth::user()->avatar, FILTER_VALIDATE_URL) ? Auth::user()->avatar : asset('images/profil/'.Auth::user()->avatar) }}" alt="" width="30" height="24" style="border-radius: 50%">
                             @else
                                 <img src="https://ui-avatars.com/api/?name=admin" alt="" width="30" height="24" style="border-radius: 50%">
                             @endif
@@ -30,6 +30,9 @@
                                 @else
                                     <a class="dropdown-item" href="{{route('user.dashboard')}}">Dashboard Saya</a>
                                 @endif
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{route('user.akun')}}">Profil Saya</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">Keluar</a>

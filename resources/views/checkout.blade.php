@@ -44,6 +44,17 @@
           <option value="Cash">Cash</option>
         </select>
           </div>
+          <p>
+            <button id="toggleButton" type="button" class="btn btn-warning mt-1" style="font-size: 10pt;" onclick="toggleCollapse()" aria-expanded="false" aria-controls="collapseExample">
+                *Info rekening
+            </button>
+        </p>
+        <div class="collapse mb-4" id="collapseExample" style="display: none;">
+            <div class="card card-body" style="text-align: left; font-size: 10pt; width: 250px;">
+                Nama Bank     : Mandiri <br>Nomor rekening : 12345 <br>Penerima : Kemal Kamaruddin
+            </div>
+        </div>
+          
       <div class="mb-3">
         <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
         <input name="bukti" class="form-control" type="file" id="formFile">
@@ -60,6 +71,21 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
  <script src="{{ asset('JS/optionTF.js') }}"></script>
+ <script>
+  function toggleCollapse() {
+      var collapseDiv = document.getElementById("collapseExample");
+      var button = document.getElementById("toggleButton");
+      
+      if (collapseDiv.style.display === "none") {
+          collapseDiv.style.display = "block";
+          button.innerHTML = "Sembunyikan";
+      } else {
+          collapseDiv.style.display = "none";
+          button.innerHTML = "*Info rekening";
+      }
+  }
+</script>
+
 
 @endsection
 

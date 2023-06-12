@@ -94,7 +94,7 @@
             <a href="{{route('register')}}" class="fs-6 text-decoration-none">Buat Akun</a>
           </div>
           <div>
-            <a href="#" class="fs-6 text-decoration-none">Lupa Password?</a>
+            <a href="{{route('password.request')}}" class="fs-6 text-decoration-none">Lupa Password?</a>
           </div>
         </div>
         <div class="d-flex justify-content-center mt-5">
