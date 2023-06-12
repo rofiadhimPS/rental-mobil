@@ -42,6 +42,6 @@ class CheckoutController extends Controller
         $userEmail = $checkout->User->email;
         Mail::to($userEmail)->send(new StatusOrder($checkout));
 
-        return redirect()->route('admin.checkout');        
+        return redirect()->back();        
     }
 }

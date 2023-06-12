@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\OrderKonfirmasi;
 use App\Models\Product;
+use App\Models\User;
 use App\Models\ProductBenefit;
 use Auth;
 
@@ -26,12 +27,14 @@ class CheckoutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Product $product)
+    public function create($id)
     {
-        // return $product;
-        return view('checkout', [
-            'product' => $product
-        ]);
+        $productId = decrypt($id);
+        $product = Product::findOrFail($productId);
+
+    return view('checkout', [
+        'product' => $product
+    ]);
     }
 
     /**
@@ -44,17 +47,17 @@ class CheckoutController extends Controller
             'name' => 'required',
             'tanggal_pesan' => 'required',
             'lokasi_penjemputan' => 'required',
-            'metode_pembayaran' => 'required'
+            'metode_pembayaran' => 'required',
+            'phone_number' => 'required',
         ]);
         // Mengambil data dari permintaan
-        $check = $request->except('bukti'); // Mengabaikan input 'bukti'
-    
-        // Mengunggah gambar
+
+
         if ($request->hasFile('bukti')) {
             $image = $request->file('bukti');
             $imageName = $image->getClientOriginalName();
             $image->move(public_path('images/bukti'), $imageName);
-            $product->icon = 'bukti/' . $imageName;
+            $check['bukti_transfer'] = 'bukti/' . $imageName;
         }
         
 
@@ -64,13 +67,17 @@ class CheckoutController extends Controller
 
         // update data user
         $user = Auth::user();
-        $user['no_telp'] = $check['phone_number'];
-        $user->save();
+            $user['no_telp'] = $check['phone_number'];
+            $user->save();
+        
+        
 
         $checkout = Checkout::create($check);
-        dispatch(new KirimCepat($checkout));
+        $adminUser = User::where('is_admin', 1)->first();
+        $ownerEmail = $adminUser->email;
+        Mail::to($ownerEmail)->send(new OrderKonfirmasi($checkout));
 
-        return redirect(route('checkout.success', $product->id));
+        return redirect(route('checkout.success', encrypt($product->id)));
 
     }
 
@@ -104,9 +111,9 @@ class CheckoutController extends Controller
     
 
 
-    public function success($productId)
+    public function success($id)
 {
-    
+    $productId = decrypt($id);
     $checkout = Checkout::latest()->where('user_id', Auth::id())->first();
     // $checkouts = Checkout::with('Product')->whereUserId(Auth::id())->get();
     // return $checkout;

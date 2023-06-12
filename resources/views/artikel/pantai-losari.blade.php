@@ -15,7 +15,7 @@
         <div class="row mt-3">
             <div class="col-lg-8 offset-lg-2 text-justify">
                 <article>
-                    <img src="{{ asset('images/pantai-losari.jpg') }}" class="img-fluid mt-4 mb-4" alt="pantai-losari">
+                    <img src="{{ asset('images/panlos.jpg') }}" class="img-fluid mt-4 mb-4" alt="pantai-losari">
                     <p> <strong> Pantai Losari</strong> yang terletak di kota Makassar, Sulawesi Selatan, adalah salah satu objek wisata paling populer di daerah tersebut. Terkenal dengan panorama pantainya yang menakjubkan dan suasana yang hidup, Pantai Losari menawarkan pengalaman wisata yang tak terlupakan bagi pengunjungnya.
 
                         Dengan garis pantai yang indah, pasir putih yang lembut, dan laut yang tenang, Pantai Losari merupakan tempat yang sempurna untuk bersantai dan menikmati pemandangan alam yang memukau. Pengunjung dapat berjalan-jalan di sepanjang pantai yang panjang sambil menikmati angin sepoi-sepoi dan pemandangan laut yang memikat.</p>
@@ -35,16 +35,16 @@
             <h4>More Articles</h4>
             <ul>
             <li>
-                <a href="artikel-masjid-99.html">Masjid 99 kubah- Destinasi terindah di Makassar</a>
+                <a href="/masjid-99-kubah">Masjid 99 kubah- Destinasi terindah di Makassar</a>
             </li>
             <li>
-                <a href="artikel-bantimurung.html">Taman Nasional Bantimurung- Tempat wisata Eksotis di Sulawesi Selatan </a>
+                <a href="/bantimurung">Taman Nasional Bantimurung- Tempat wisata Eksotis di Sulawesi Selatan </a>
             </li>
             <li>
-                <a href="artikel-tips-berkendara.html">10 Tips Aman Berkendera</a>
+                <a href="/tips-berkendara">10 Tips Aman Berkendera</a>
             </li>
             <li>
-                <a href="artikel-rawat-mobil.html">Cara Merawat Mobil Agar Terlihat Baru</a>
+                <a href="/rawat-mobil">Cara Merawat Mobil Agar Terlihat Baru</a>
             </li>
             </ul>
             

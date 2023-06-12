@@ -46,9 +46,6 @@
                         <a class="nav-link" href="{{route('login')}}">Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('login')}}">Notifikasi</a>
-                    </li>
-                    <li class="nav-item">
                         <button type="button" class="btn btn-light" style="border-radius: 30px; ">
                             <a href="{{route('login')}}" style="text-decoration: none;">Login</a>
                         </button>

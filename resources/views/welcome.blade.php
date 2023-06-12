@@ -105,41 +105,6 @@
           
        </div>
     
-        <div class="container-fluid d-flex justify-content-evenly mt-2 d-grid gap-2 mx-auto " >
-            <!-- dropdown tipe mobil -->
-          <div class="dropdown ">
-            <button
-              class="btn btn-primary dropdown-toggle"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-              style="width: 100%;"
-            >
-              Tipe Mobil
-            </button>
-    
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Avanza</a></li>
-              <li><a class="dropdown-item" href="#">Expander</a></li>
-              <li><a class="dropdown-item" href="#">Toyota Rush</a></li>
-              <li><a class="dropdown-item" href="#">Grand Innova</a></li>
-              <li><a class="dropdown-item" href="#">Innova Riborn</a></li>
-              <li><a class="dropdown-item" href="#">Venturer</a></li>
-              <li><a class="dropdown-item" href="#">Fortuner</a></li>
-              <li><a class="dropdown-item" href="#">Pajero</a></li>
-              <li><a class="dropdown-item" href="#">Alphard</a></li>
-              <li><a class="dropdown-item" href="#">Vellfire</a></li>
-              <li><a class="dropdown-item" href="#">Hiace</a></li>
-              <li><a class="dropdown-item" href="#">Bus Pariwisata</a></li>
-            </ul>
-          </div>
-          <!-- akhir dropdown -->
-          <!-- datepicker -->
-          <div  class="rounded">
-            <input class="rounded border border-1 p-2 shadow-sm" type="datetime-local" />
-          </div>
-          <!-- akhir datepicker -->
-       </div>
        
        <!-- brand -->
         <div class="row justify-content-center m-5 d-flex">
@@ -200,7 +165,7 @@
                         </div>
                       </div>
                       <div class="col-6">
-                        <div class="p-0"><h5>Rp.{{ $product->price }}/hari</h5></div>
+                        <div class="p-0"><h5>Rp.{{ $product->price }}/ 12 Jam</h5></div>
                       </div>
                     </div>
                   </div>
@@ -229,7 +194,7 @@
             </svg>
           </container>
           <div class="bgColor" style="background:#ae88ff; "hhhhhhh>
-            <div class="testimoni" >
+            {{-- <div class="testimoni" >
               <h2>Testimoni</h2>
               <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -244,7 +209,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
             <div class="client d-flex align-content-center flex-wrap flex-column">
               <h2>Client Kami</h2>
               <div class="card-group">
@@ -390,7 +355,7 @@
                 <div class="wrapper-col-3">
                   <h1>Artikel</h1>
                   <p><a href="/tips-berkendara" class="text-decoration-none text-white">10 Tips Aman Berkendera</a></p>
-                  <p>Cara Merawat Mobil Agar Terlihat Baru</p>
+                  <p><a href="/rawat-mobil" class="text-decoration-none text-white">Cara Merawat Mobil Agar Terlihat Baru</a></p>
                   <p>Mulai Berbisnis Rental Mobil</p>
                   <p>Cara Menghilangkan Bau Pada Mobil</p>
                 </div>
@@ -398,8 +363,7 @@
               <div class="col" id="colFooter">
                 <div class="wrapper-col-3">
                   <h1>Contact Us</h1>
-                  <p>info@rentalmobilmakassacity.com</p><a href="/rawat-mobil" class="text-decoration-none text-white">Cara Merawat Mobil Agar Terlihat Baru</a>
-                  <p><a href="/rawat-mobil" class="text-decoration-none text-white">Cara Merawat Mobil Agar Terlihat Baru</a></p>
+                  <p>info@rentalmobilmakassacity.com</p>
                   <p>0813-4351-2555</p>
                   <p>2972 Westheimer Rd. Santa Ana, Illinois 85486 </p>
                 </div>

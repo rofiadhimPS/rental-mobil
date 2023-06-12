@@ -32,12 +32,19 @@ class OrderKonfirmasi extends Mailable
 
         $mime = File::mimeType($gambarPath);
 
-        return $this->subject('Ada Pesanan Baru')
-                    ->view('emails.order-notifikasi')
-                    ->attach($gambarPath, [
-                        'as' => $lampiranNama,
-                        'mime' => $mime,
-                    ]);
+        if($lampiranNama != null){
+            return $this->subject('Ada Pesanan Baru')
+                        ->view('emails.order-notifikasi')
+                        ->attach($gambarPath, [
+                            'as' => $lampiranNama,
+                            'mime' => $mime,
+                        ]);
+        }
+        else{
+            return $this->subject('Ada Pesanan Baru')
+                        ->view('emails.order-notifikasi');
+        }
+
     }
     
 }

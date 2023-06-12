@@ -6,6 +6,7 @@
         <title>Rental Mobil</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel="stylesheet" href="{{asset('css/pesanan.css')}}">
+        <link rel="icon" href="{{asset('images/tkro.png')}}" />
     </head>
     <body>
         <!-- navbar -->
@@ -24,14 +25,13 @@
                             <div class="card-body">
                                 <h5 class="card-title fw-bold fs-1">{{$product->title}}</h5>
                                 <p class="card-text fs-2 fw-normal m-0">Rp {{$product->price}}</p>
-                                <p class="card-text"><small class="text-muted">4.0 | 8 Kali Terpesan</small> </p>
+                                <p class="card-text"><small class="text-muted">4.0 | {} Kali Terpesan</small> </p>
                                 
                                 <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
                                 <h5 class="" style="border: 1px solid #6157FF; width: fit-content; padding: 8px 40px; margin: 40px 0 20px; border-radius: 10px;">Spesifikasi</h5>
                                 <h5>Tipe Mobil        : {{$product->title}} </h5>
                                 <h5>Tahun             : {{$product->tahun}}</h5>
-                                <h5>Warna            : {{$product->warna}}</h5>
                                 <h5>Metode Pembayaran : {{$checkout->metode_pembayaran }}</h5>
                             </div>
                             

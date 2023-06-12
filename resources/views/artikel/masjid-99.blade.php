@@ -34,16 +34,16 @@
             <h4>More Articles</h4>
             <ul>
             <li>
-                <a href="artikel-pantai-bira.html">Indahnya pantai Bira, pantai wisata yang wajib kamu kunjungi!</a>
+                <a href="/pantai-bira">Indahnya pantai Bira, pantai wisata yang wajib kamu kunjungi!</a>
             </li>
             <li>
-                <a href="artikel1.html">Pantai Losari- Pesona Keindahan alam Makassar  </a>
+                <a href="/pantai-losari">Pantai Losari- Pesona Keindahan alam Makassar  </a>
             </li>
             <li>
-                <a href="artikel-tips-berkendara.html">10 Tips Aman Berkendera</a>
+                <a href="/tips-berkendara">10 Tips Aman Berkendera</a>
             </li>
             <li>
-                <a href="artikel1.html">Cara Merawat Mobil Agar Terlihat Baru</a>
+                <a href="/rawat-mobil">Cara Merawat Mobil Agar Terlihat Baru</a>
             </li>
             </ul>
             

@@ -21,6 +21,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <link rel="icon" href="{{asset('images/tkro.png')}}" />
 
   </head>
   <body class="d-flex justify-content-center justify-align-center">
@@ -109,9 +110,9 @@
             <span
               class="input-group-text"
               id="addon-wrapping"
-              onclick="change()"
+              onclick="change2()"
             >
-              <i class="fas fa-eye-slash" id="icon"></i>
+              <i class="fas fa-eye-slash" id="icon2"></i>
             </span>
             
           </div>
@@ -162,6 +163,19 @@
       function change() {
         var x = document.getElementById("password");
         var icon = document.getElementById("icon");
+        if (x.type == "password") {
+          x.type = "text";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        } else {
+          x.type = "password";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        }
+      }
+      function change2() {
+        var x = document.getElementById("password_confirmation");
+        var icon = document.getElementById("icon2");
         if (x.type == "password") {
           x.type = "text";
           icon.classList.remove("fa-eye-slash");
