@@ -42,8 +42,8 @@ Route::get('auth/google/callback', [UserController::class, 'handleProviderCallba
 
 Route::middleware(['auth', 'verified'])->group(function () {
     //checkout routes
-    Route::get('checkout/success/{product}', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
-    Route::get('checkout/{product}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
+    Route::get('checkout/success/{id}', [CheckoutController::class, 'success'])->name('checkout.success')->middleware('ensureUserRole:user');
+    Route::get('checkout/{id}', [CheckoutController::class, 'create'])->name('checkout.create')->middleware('ensureUserRole:user');;
     Route::get('checkout/{product}/mail', [CheckoutController::class, 'store'])->name('checkout.store.mail')->middleware('ensureUserRole:user');;
     Route::post('checkout/{product}', [CheckoutController::class, 'store'])->name('checkout.store')->middleware('ensureUserRole:user');;
     // Halaman
@@ -63,6 +63,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/dashboard/{id}', [UserDashboard::class, 'destroy'])->name('dashboard.destroy');
         Route::get('/pesanan', [UserDashboard::class, 'show'])->name('pesanan');
         Route::delete('/pesanan/{id}', [UserDashboard::class, 'destroy'])->name('pesanan.destroy');
+
+        #edit akun
+        Route::get('/akun', [UserDashboard::class, 'menuAkun'])->name('akun');
+        Route::post('/akun/update', [UserDashboard::class, 'updateAkun'])->name('akun.update');
+        Route::put('/akun/update', [UserDashboard::class, 'updateAkun'])->name('akun.update');
+        
     });
     // admin dashboard
     Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('ensureUserRole:admin')->group(function(){
@@ -92,7 +98,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         });
 
         Route::get('/akun', [AdminDashboard::class, 'show'])->name('akun');
-        Route::post('/akun', [AdminDashboard::class, 'Editakun'])->name('akun.update');
+        Route::post('/akun/update', [AdminDashboard::class, 'update'])->name('akun.update');
+        Route::put('/akun/update', [AdminDashboard::class, 'update'])->name('akun.update');
 
         Route::get('/chat', function () {
             return view('admin.admin_chat', [

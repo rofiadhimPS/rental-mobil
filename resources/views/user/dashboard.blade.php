@@ -40,7 +40,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="https://wa.me/082347980205?text=Hi, Saya ingin bertanya tentang mobil {{$checkout->Product->title}}" class="btn btn-primary btn-sm">
+                            <a href="https://wa.me/+6281343512555?text=Hi, Saya ingin bertanya tentang mobil {{$checkout->Product->title}}" class="btn btn-primary btn-sm">
                                 Contact Support
                             </a>
                             <button type="button" onclick="handleDelete({{ $checkout->id }})" class="btn btn-primary btn-sm" style=" background-color: black;  border: 0;">Batalkan Pesanan</button>

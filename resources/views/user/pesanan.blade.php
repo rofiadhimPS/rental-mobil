@@ -26,8 +26,8 @@
           </div>
           @forelse ($pesans as $pesan)
           <div class="card d-flex flex-row justify-content-center" style="margin: 4% 0; width: 85%;border-radius: 10px; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%); flex-wrap:wrap; justify-content: flex-center;">
-            <div class="d-flex align-items-center justify-content-center" style="background-color: #837ED940">
-              <img style="width:100%;" src="{{ asset('images/'.$pesan->product->icon) }}" >
+            <div class="d-flex align-items-center" style="background-color: #ffffff40">
+              <img style="width:80%;" src="{{ asset('images/'.$pesan->product->icon) }}" >
             </div>
             <div class="d-flex align-items-center"style="margin-left: 7%">
               <div class="d-flex flex-column mb-3 mt-1" >

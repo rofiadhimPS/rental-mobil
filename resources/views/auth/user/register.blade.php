@@ -45,6 +45,7 @@
             type="text"
             name="name"
             class="form-control-lg w-100"
+            required
             id="name"
             placeholder="Username"
           >
@@ -57,6 +58,7 @@
           <input
             type="email"
             name="email"
+            required
             class="form-control-lg w-100"
             id="email"
             placeholder="Email"
@@ -71,6 +73,8 @@
               type="password"
               id="password"
               name="password"
+              minlength="8"
+              required
               class="form-control-lg w-100"
               placeholder="password"
               aria-label="password"
@@ -95,6 +99,8 @@
                 type="password"
                 id="password_confirmation"
                 name="password_confirmation"
+                minlength="8"
+                required
                 class="form-control-lg w-100"
                 placeholder="Konfirmasi Password"
                 aria-label="Konfirmasi Password"

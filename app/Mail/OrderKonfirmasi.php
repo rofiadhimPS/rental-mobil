@@ -10,6 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Models\Checkout;
+use Illuminate\Support\Facades\File;
 
 class OrderKonfirmasi extends Mailable
 {
@@ -26,8 +27,17 @@ class OrderKonfirmasi extends Mailable
 
     public function build()
     {
-        return $this->subject('Notifikasi Pesanan Baru')
-                    ->view('emails.order-notifikasi');
+        $gambarPath = public_path('images/' . $this->checkout->bukti_transfer);
+        $lampiranNama = basename($this->checkout->bukti_transfer);
+
+        $mime = File::mimeType($gambarPath);
+
+        return $this->subject('Ada Pesanan Baru')
+                    ->view('emails.order-notifikasi')
+                    ->attach($gambarPath, [
+                        'as' => $lampiranNama,
+                        'mime' => $mime,
+                    ]);
     }
     
 }
