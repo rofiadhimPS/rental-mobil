@@ -46,6 +46,18 @@
             @enderror
         </div>
         <div class="mb-3 d-flex flex-column">
+          <label for="tahun" class="form-label">Tahun</label>
+          <input type="text" class="form-control" name="tahun"  id="tahun" placeholder="tahun keluaran" value="{{ old('tahun') }}">
+        </div>
+        <div class="mb-3 d-flex flex-column">
+          <label for="seat" class="form-label">Seat</label>
+          <input type="text" class="form-control" name="seat"  id="seat" placeholder="jumlah Seat" value="{{ old('seat') }}">
+        </div>
+        <div class="mb-3 d-flex flex-column">
+          <label for="metode_bayar" class="form-label">Metode Pesan</label>
+          <input type="text" class="form-control" name="metode_bayar"  id="metode_bayar" placeholder="" value="Transfer atau Cash">
+        </div>
+        <div class="mb-3 d-flex flex-column">
           <label for="price" class="form-label">Price</label>
           <input type="text" class="form-control" name="price"  id="price" value="{{ old('price') }}">
           @error('price')
@@ -53,54 +65,16 @@
             @enderror
         </div>
         <div class="mb-3">
-          <label for="avatar" class="form-label">avatar</label>
-          <input class="form-control" type="file" name="avatar" id="avatar" accept="image/*" required>
+          <label for="icon" class="form-label">Gambar</label>
+          <input class="form-control" type="file" name="icon" id="icon" accept="image/*" required>
           <img id="previewImage" src="#" alt="preview mobil rental" style="display:none;" width="300px">
-          @error('avatar')
+          @error('icon')
                 <div class="text-red-500">{{ $message }}</div>
             @enderror
         </div>
-        <div class="mb-3">
-          <label for="is_tersedia" class="form-label">is_tersedia</label>
-          <input class="form-control" type="text" name="is_tersedia" id="is_tersedia" value="{{ old('is_tersedia') }}">
-        </div>
         <div>
           <button id="submit-form2" type="submit" class="btn btn-primary">Tambah</button>
-          <button type="button" class="btn btn-primary" onclick="window.location.href = '/webadmin/produk';">Selesai</button>
-        </div>
-      </form>
-        <hr>
-        
-        <hr>
-        <form id="form1" action="{{ route('admin.benefits.store') }}" method="POST">
-        @csrf
-        <div class="mb-3 d-flex flex-column">
-          <label for="tipe_mobil" class="form-label" >Type Mobil</label>
-          <input type="text" class="form-control" name="tipe_mobil"  id="tipe_mobil" placeholder="Type Mobil">
-        </div>
-        <div class="mb-3 d-flex flex-column">
-          <label for="product_id" class="form-label" >id</label>
-          <input type="text" class="form-control" name="product_id"  id="product_id" placeholder="Type Mobil">
-        </div>
-
-        <div class="mb-3 d-flex flex-column">
-          <label for="tahun" class="form-label">Tahun</label>
-          <input type="text" class="form-control" name="tahun"  id="tahun" placeholder="Tahun Keluaran Mobil">
-        </div>
-
-        <div class="mb-3 d-flex flex-column">
-          <label for="warna" class="form-label">Warna</label>
-          <input type="text" class="form-control" name="warna"  id="warna" placeholder="Warna Dominan Mobil">
-        </div>
-      </select>
-      
-      <div class="mb-3 d-flex flex-column">
-        <label for="jumlahseat" class="form-label">Jumlah Seat</label>
-        <input type="text" class="form-control" name="seat"  id="jumlahseat" placeholder="4">
-        </div>
-        
-        <div>
-          <button id="submit-form1" type="submit" class="btn btn-primary">Tambah</button>
+          <button type="button" class="btn btn-primary" onclick="window.location.href = '/admin/produk';">Selesai</button>
         </div>
       </form>
       

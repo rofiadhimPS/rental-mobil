@@ -11,10 +11,7 @@
                         <a class="nav-link {{ (isset($title) && $title === 'beranda') ? 'active' : '' }}" aria-current="page" href="{{route('welcome')}}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/pesanan">Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ (isset($title) && $title === 'notif') ? 'active' : '' }}" href="/notifikasi">Notifikasi</a>
+                        <a class="nav-link {{ (isset($title) && $title === 'pesan') ? 'active' : '' }}" href="/user/pesanan">Pemesanan</a>
                     </li>
                     {{-- sudah login --}}
                     <li class="nav-item dropdown">

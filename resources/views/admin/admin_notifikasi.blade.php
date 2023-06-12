@@ -1,4 +1,4 @@
-@extends('components.sidebars');
+@extends('components.sidebar')
 
 @section('container')
             <nav class="navbar w-100" style="padding: 2% 0; background-image: linear-gradient(to right, #001743 , #350261); color: white;">

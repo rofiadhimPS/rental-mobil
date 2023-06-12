@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('metode_pembayaran');
             $table->string('bukti_transfer')->nullable();
             $table->boolean('is_paid')->default(false);
+            $table->string('status')->default('');
             $table->timestamps();
             $table->softDeletes();
         });

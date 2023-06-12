@@ -16,7 +16,7 @@
         <!-- Sidebar -->
         <nav  style="width: 25%;height: 100vh; padding: 5% 0; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%);">
             <div class="">
-                <ul class="fs-2 d-grid gap-4 " style="list-style-type: none; padding: 0;">
+                <ul class="fs-2 d-grid gap-3 menu-ul" style="list-style-type: none; padding: 0;">
                     <li class="menu-list {{ (isset($title) && $title === 'Dashboard') ? 'active' : '' }}" onclick="window.location.href = '/admin/dashboard';"><img src="{{ asset('images/Vector_Dashboard.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Dashboard</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Pengguna') ? 'active' : '' }}" onclick="window.location.href = '/admin/pengguna';"><img src="{{ asset('images/Vector_Pengguna.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pengguna</a></li>
                     <li class="menu-list {{ (isset($title) && $title === 'Checkout') ? 'active' : '' }}" onclick="window.location.href = '{{route('admin.checkout')}}';"><img src="{{ asset('images/Vector_Pesanan.png') }}" class="menu-list__icon"><a class="nav-link active" aria-current="page" href="#">Pesanan</a></li>

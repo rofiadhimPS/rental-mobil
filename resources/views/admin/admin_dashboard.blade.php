@@ -12,7 +12,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Total Pesanan</h4>
                         <div class="d-flex flex-row align-items-center justify-content-center d-grid gap-2">
-                            <h1 class="card-text">1.500</h1>
+                            <h1 class="card-text">{{ $totalPesananSelesai }}</h1>
                             <h5 class="card-text"></h5>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Total Pengguna</h4>
                         <div class="d-flex flex-row align-items-center justify-content-center d-grid gap-2">
-                            <h1 class="card-text">10.000</h1>
+                            <h1 class="card-text">{{ $userCount }}</h1>
                             <h5 class="card-text">Orang</h5>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Total Produk</h4>
                         <div class="d-flex flex-row align-items-center justify-content-center d-grid gap-2">
-                            <h1 class="card-text">10</h1>
+                            <h1 class="card-text">{{ $productCount }}</h1>
                             <h5 class="card-text">Item</h5>
                         </div>
                     </div>

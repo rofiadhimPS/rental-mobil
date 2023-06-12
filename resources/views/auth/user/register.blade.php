@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rental Mobil | Login</title>
+    <title>Rental Mobil | Register</title>
     <meta
       name="description"
       content="Rental mobil Makassar menyediakan sewa mobil dengan pelayanan berkualitas, murah dan mengutamakan kenyamanan. Rental mobil makassar menyediakan berbagai macam mobil sesuai dengan kebutuhan dan keinginan client."
@@ -37,18 +37,31 @@
       </div>
       <div class="d-flex align-items-center"style="margin-left: 7%">
         <div class="d-flex flex-column p-2" >
-        <h1 class="loginTitle" style="padding: 10px;margin-top: 15%;">Log In</h1>
-        <form action="{{ route('login.ulang') }}" method="POST">
+        <h1 class="loginTitle" style="padding: 10px;margin-top: 15%;">Sign Up</h1>
+        <form action="{{ route('register.store') }}" method="POST">
           @csrf
         <div class="mb-3">
           <input
-            type="email"
-            name="login"
+            type="text"
+            name="name"
             class="form-control-lg w-100"
-            id="exampleFormControlInput1"
-            placeholder="Nomor Telepon/Username/Email"
+            id="name"
+            placeholder="Username"
           >
-          @error('login')
+          @error('name')
+          <span class="text-danger">{{ $message }}</span>
+          @enderror
+
+        </div>
+        <div class="mb-3">
+          <input
+            type="email"
+            name="email"
+            class="form-control-lg w-100"
+            id="email"
+            placeholder="Email"
+          >
+          @error('email')
           <span class="text-danger">{{ $message }}</span>
           @enderror
         </div>
@@ -56,11 +69,11 @@
           <div class="input-group flex-nowrap">
             <input
               type="password"
-              id="pass"
+              id="password"
               name="password"
               class="form-control-lg w-100"
-              placeholder="Password"
-              aria-label="Username"
+              placeholder="password"
+              aria-label="password"
               aria-describedby="addon-wrapping"
             />
             <span
@@ -70,10 +83,35 @@
             >
               <i class="fas fa-eye-slash" id="icon"></i>
             </span>
+            
           </div>
           @error('password')
-          <span class="text-danger">{{ $message }}</span>
-          @enderror
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="mb-3">
+          <div class="input-group flex-nowrap">
+            <input
+                type="password"
+                id="password_confirmation"
+                name="password_confirmation"
+                class="form-control-lg w-100"
+                placeholder="Konfirmasi Password"
+                aria-label="Konfirmasi Password"
+                aria-describedby="addon-wrapping"
+            />
+            <span
+              class="input-group-text"
+              id="addon-wrapping"
+              onclick="change()"
+            >
+              <i class="fas fa-eye-slash" id="icon"></i>
+            </span>
+            
+          </div>
+          @error('password')
+            <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
         <div>
           <button
@@ -81,20 +119,13 @@
             class="btn btn-primary btn-lg w-100"
             style="background-color: #340867; border: none;"
           >
-            Log In
+            Sign up
           </button>
         </div>
-        <div class="mb-1 mt-1">
-          <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-            Remember Me
-        </div>
-      </form>
+    </form>
         <div class="d-flex justify-content-between mt-2">
           <div>
-            <a href="{{route('register')}}" class="fs-6 text-decoration-none">Buat Akun</a>
-          </div>
-          <div>
-            <a href="#" class="fs-6 text-decoration-none">Lupa Password?</a>
+            <a href="{{route('login')}}" class="fs-6 text-decoration-none">Login</a>
           </div>
         </div>
         <div class="d-flex justify-content-center mt-5">
@@ -123,7 +154,7 @@
 
     <script>
       function change() {
-        var x = document.getElementById("pass");
+        var x = document.getElementById("password");
         var icon = document.getElementById("icon");
         if (x.type == "password") {
           x.type = "text";

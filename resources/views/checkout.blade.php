@@ -7,52 +7,50 @@
       <div class="pageTitle" style="width: 60%;">
         <h1>Pemesanan {{$product->title}}</h1>
       </div>
+      <input name="title" type="hidden" class="form-control"  id="formGroupExampleInput" value="{{$product->title}}">
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput" class="form-label" >Nama Lengkap</label>
-        <input name="name" type="text" class="form-control {{$errors->has('name') ? 'is-invalid' : ''}}"  id="formGroupExampleInput" value="{{Auth::user()->name}}" required>
-        @if ($errors->has('name'))
-          <p class="text-danger">{{$errors->first('name')}}</p>
-        @endif
+        <input name="name" type="text" class="form-control"  id="formGroupExampleInput" placeholder="Muhammad Ramadhan" value="{{ old('name') }}">
+        @error('name')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput2" class="form-label">No. Hp</label>
-        <input name="phone_number" type="text" class="form-control {{$errors->has('phone_number') ? 'is-invalid' : ''}}"  id="formGroupExampleInput2" placeholder="082xxxxxxxxx" value="{{ old('phone_number') }}" required>
-        @if ($errors->has('phone_number'))
-          <p class="text-danger">{{$errors->first('phone_number')}}</p>
-        @endif
+        <input name="phone_number" type="text" class="form-control"  id="formGroupExampleInput2" placeholder="0852****1971" value="{{ old('phone_number') }}">
+        @error('phone_number')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
         <label for="formGroupExampleInput3" class="form-label">Tanggal Pesanan</label>
-        <input name="tanggal_pesan" type="datetime-local" class="form-control {{$errors->has('tanggal_pesan') ? 'is-invalid' : ''}}"  id="formGroupExampleInput3" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}" required>
-        @if ($errors->has('tanggal_pesan'))
-          <p class="text-danger">{{$errors->first('tanggal_pesan')}}</p>
-        @endif
+        <input name="tanggal_pesan" type="datetime-local" class="form-control"  id="tanggal_pesan" placeholder="Pilih Tanggal" value="{{ old('tanggal_pesan') }}">
+        @error('tanggal_pesan')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
-        <label for="formGroupExampleInput3" class="form-label">Lokasi Penjemputan</label>
-        <input name="lokasi_penjemputan" type="text" class="form-control {{$errors->has('lokasi_penjemputan') ? 'is-invalid' : ''}}" id="formGroupExampleInput3" placeholder="Ex: Bandara Hasanuddin"  value="{{ old('lokasi_penjemputan') }}" required>
-        @if ($errors->has('lokasi_penjemputan'))
-          <p class="text-danger">{{$errors->first('lokasi_penjemputan')}}</p>
-        @endif
+        <label for="formGroupExampleInput4" class="form-label">Lokasi Penjemputan</label>
+        <input name="lokasi_penjemputan" type="text" class="form-control"  id="formGroupExampleInput4" placeholder="Ex: Bandara Hasanuddin" value="{{ old('lokasi_penjemputan') }}">
+        @error('lokasi_penjemputan')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
       </div>
       <div class="mb-3 d-flex flex-column">
-        <label for="formGroupExampleInput3" class="form-label">Metode Pembayaran</label>
-        <select name="metode_pembayaran" class="form-select {{$errors->has('metode_pembayaran') ? 'is-invalid' : ''}}" aria-label="Default select example" required>
-            <option value="" disabled hidden>Pilih Metode</option>
-            <option value="Transfer" {{ old('metode_pembayaran') === 'Transfer' ? 'selected' : '' }}>Transfer</option>
-            <option value="Cash" {{ old('metode_pembayaran') === 'Cash' ? 'selected' : '' }}>Cash</option>
+        <label for="formGroupExampleInput5" class="form-label">Metode Pembayaran</label>
+        <select name="metode_pembayaran" class="form-select" aria-label="Default select example" id="payment_option" required>
+          <option selected>Pilih</option>
+          <option value="Transfer">Transfer</option>
+          <option value="Cash">Cash</option>
         </select>
-        @if ($errors->has('metode_pembayaran'))
-            <p class="text-danger">{{$errors->first('metode_pembayaran')}}</p>
-        @endif
-    </div>    
-    <div class="mb-3">
-      <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
-      <input name="bukti" class="form-control {{$errors->has('bukti') ? 'is-invalid' : ''}}" type="file" id="formFile">
-      @if ($errors->has('bukti'))
-          <p class="text-danger">{{$errors->first('bukti')}}</p>
-      @endif
-  </div>  
+          </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Foto Bukti Pembayaran</label>
+        <input name="bukti" class="form-control" type="file" id="formFile">
+        @error('bukti')
+                <div class="text-red-500">{{ $message }}</div>
+            @enderror
+      </div>
       <div>
         <button type="submit" class="w-100 btn btn-primary">Pesan Sekarang</button>
       </div>
@@ -61,7 +59,8 @@
   
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
- 
+ <script src="{{ asset('JS/optionTF.js') }}"></script>
+
 @endsection
 
 

@@ -29,32 +29,38 @@
   </style>
   <body>
          <!-- navbar -->
- @include('layout.navbar_login')
+ @include('components.navbar')
  <!-- akhir navbar -->
  
     <!-- cardProfil -->
- 
-    @include('layout.card_account')
     <!-- card -->
     <section class="section-pesanan mt-5">
       <div class="container">
           <h3 class="text-uppercase fs-3 fw-bold text-center pt-5">Status Pesanan</h3>
-          <div class="card d-flex flex-row" style="margin-left: 20px; width: 85%;border-radius: 10px; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%); flex-wrap:wrap; justify-content: flex-center;">
+          <div class="card d-flex flex-row " style="margin-left: 20px; width: 90%;border-radius: 10px; box-shadow: 4px 4px 16px rgb(0 0 0 / 10%); flex-wrap:wrap; justify-content: flex-center;">
             <div class="d-flex align-items-center" style="background-color: #837ED940">
-              <img style="width:100%;" src="{{ asset('assets/toyota-rush1_prev_ui_left.png') }}" >
+              <img style="width:100%;" src="{{ asset('images/'.$products->icon) }}" >
             </div>
             <div class="d-flex align-items-center"style="margin-left: 7%">
               <div class="d-flex flex-column" >
-                  <h5 class="card-title fw-bold fs-1">Fortuner</h5>
-                  <p class="card-text fs-2 fw-normal m-0">Rp500.000</p>
-                  <p class="card-text"><small class="text-muted"> <img src="{{ asset('assets/star.png') }}" alt="rating rental mobil">4.0 | 8 Kali Terpesan</small> </p>
+                  <h5 class="card-title fw-bold fs-1">{{ $products->title }}</h5>
+                  <p class="card-text fs-2 fw-normal m-0">Rp{{ $products->price }}</p>
+                  <p class="card-text"><small class="text-muted"> <img src="{{ asset('images/star.png') }}" alt="rating rental mobil">4.0 | 8 Kali Terpesan</small> </p>
                   
                   <h5 class="" style="border: 1px solid #6157FF; width: fit-content; padding: 8px 40px; margin: 40px 0 20px; border-radius: 10px;">Spesifikasi</h5>
-                  <h5>Tipe Mobil        : Xxxx</h5>
-                  <h5>Tahun             : 2018</h5>
-                  <h5>Warnae            : Silver, Hitam, Putih</h5>
-                  <h5>Metode Pembayaran : Transfer dan Cash</h5>
-                  <h5>Jumlah Seat       : 4 seat</h5>
+                  <h5>Tahun             : {{ $products->tahun }}</h5>
+                  <h5>Metode Pembayaran : {{ $products->metode_bayar }}</h5>
+                  <h5>Jumlah Seat       : {{ $products->seat }}</h5>
+                  <h5>Status            : {{ $products->is_tersedia == 1 ? 'Tersedia' : 'Tidak'; }}</h5>
+                  @if ($checkouts != null)
+                  <h5>Ada Pesanan Tanggal         :</h5>
+                  <ul>
+                      @foreach ($checkouts as $checkout)
+                      <li>{{ $checkout }}</li>
+                      @endforeach
+                  </ul>
+                  @endif
+
               </div> 
             </div>   
           </div>
@@ -65,28 +71,6 @@
   </section>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <!-- Review dan Komentar -->
-  <div class="review">
-    <div class="judulReview"><p>Review dan Rating</p></div>
-    <div class="isiReview">
-      <div class="nama">Masbro</div>
-      <div class="rating"><img src="{{ asset('assets/rating.png') }}" alt="rating rental mobil"></div>
-      <div class="komentar">
-        <div class="isiKomentar">Sangat baik</div>
-        <div class="tanggal">12 Nov 2023</div>
-      </div>
-
-    </div>
-    <div class="isiReview">
-      <div class="nama">Masbro</div>
-      <div class="rating"><img src="{{ asset('assets/rating.png') }}" alt="rating rental mobil"></div>
-      <div class="komentar">
-        <div class="isiKomentar">Sangat baik</div>
-        <div class="tanggal">12 Nov 2023</div>
-      </div>
-
-    </div>
-
-  </div>
    
 
     <script

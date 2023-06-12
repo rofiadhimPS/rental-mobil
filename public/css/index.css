@@ -212,3 +212,23 @@
 .hyperlink:hover {
     border-bottom: 1px rgb(0, 89, 255) solid;
 }
+
+
+@media screen and (max-width: 768px) {
+    .menu-list {
+      padding: 3% 0;
+      justify-content: center;
+    }
+    
+    .menu-list__icon {
+      width: 22%;
+    }
+
+    .menu-ul{
+        margin-top: 25%;
+    }
+    
+    .menu-list a {
+      display: none;
+    }
+  }
